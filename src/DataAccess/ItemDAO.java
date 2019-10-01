@@ -10,13 +10,7 @@ import java.util.List;
 
 import Business.Item;
 
-/**
- * AbstractDAO.java This DAO class provides CRUD database operations for the
- * table users in the database.
- * 
- * @author Ramesh Fadatare
- *
- */
+
 public class ItemDAO {
     private String jdbcURL = "jdbc:mysql://remotemysql.com:3306/XdVvV2OhRA?useSSL=true";
     private String jdbcUsername = "XdVvV2OhRA";
@@ -52,7 +46,7 @@ public class ItemDAO {
             preparedStatement.setString(1, item.getTitle());
             preparedStatement.setString(2, item.getDescription());
             preparedStatement.setString(3, item.getQuantity());
-            preparedStatement.setString(4, item.getPrice());
+            preparedStatement.setFloat(4, item.getPrice());
             System.out.println(preparedStatement);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -76,7 +70,7 @@ public class ItemDAO {
                 String title = rs.getString("title");
                 String description = rs.getString("description");
                 String quantity = rs.getString("quantity");
-                float price = rs.getString("price");
+                float price = rs.getFloat("price");
                 item = new Item(id, title, description, quantity, price);
             }
         } catch (SQLException e) {
@@ -104,7 +98,7 @@ public class ItemDAO {
                 String title = rs.getString("title");
                 String description = rs.getString("description");
                 String quantity = rs.getString("quantity");
-                float price = rs.getString("price");;
+                float price = rs.getFloat("price");;
                 items.add(new Item(id, title, description, quantity, price));
             }
         } catch (SQLException e) {
@@ -128,7 +122,7 @@ public class ItemDAO {
             statement.setString(1, item.getTitle());
             statement.setString(2, item.getDescription());
             statement.setString(3, item.getQuantity());
-            statement.setString(4, item.getPrice());
+            statement.setFloat(4, item.getPrice());
             statement.setInt(5, item.getId());
 
             rowUpdated = statement.executeUpdate() > 0;
