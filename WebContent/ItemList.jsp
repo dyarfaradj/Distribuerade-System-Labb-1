@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <html>
 <head>
  <title>User Management Application</title>
@@ -25,9 +25,9 @@
                 <th>Actions</th>
             </tr>
   
-            <c:forEach var="itemList" items="${listItem}">
+            <c:forEach var="item" items="${requestScope.listItem}">
                 <tr>
-                    <td><c:out value="${item.id}" /></td>
+                    <td style="color: black;"><c:out value="${item.id}" /></td>
                     <td><c:out value="${item.title}" /></td>
                     <td><c:out value="${item.title}" /></td>
                     <td><c:out value="${item.price}" /></td>

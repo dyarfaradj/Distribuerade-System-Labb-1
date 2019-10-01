@@ -26,13 +26,13 @@
           <a href="#!">About</a>
         </li>
         <li>
-          <a href="#!">Services</a>
+          <a href="#!">Sidor</a>
           <ul class="nav-dropdown">
             <li>
-              <a href="#!">Web Design</a>
+              <a href="./list">Product List</a>
             </li>
             <li>
-              <a href="#!">Web Development</a>
+              <a href="./ItemForm.jsp">Add new product</a>
             </li>
             <li>
               <a href="#!">Graphic Design</a>

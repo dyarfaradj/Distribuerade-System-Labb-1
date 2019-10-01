@@ -15,7 +15,7 @@ import DataAccess.ItemDAO;
 import Business.Item;
 
 
-@WebServlet("/ItemForm")
+@WebServlet("/")
 public class ItemServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private ItemDAO itemDAO;
@@ -50,6 +50,9 @@ public class ItemServlet extends HttpServlet {
                 case "/update":
                     updateItem(request, response);
                     break;
+                case "/list":
+                	listItem(request, response);
+                    break;
                 default:
                     listItem(request, response);
                     break;
@@ -63,11 +66,11 @@ public class ItemServlet extends HttpServlet {
     throws SQLException, IOException, ServletException {
         List < Item > listItem = itemDAO.selectAllItems();
         request.setAttribute("listItem", listItem);
-        for(int i=0; i<listItem.size(); i++)
-        {
-        	System.out.println(listItem.get(i).getTitle());
-        }
-        RequestDispatcher dispatcher = request.getRequestDispatcher("user-list.jsp");
+//        for(int i=0; i<listItem.size(); i++)
+//        {
+//        	System.out.println(listItem.get(i).getTitle());
+//        }
+        RequestDispatcher dispatcher = request.getRequestDispatcher("ItemList.jsp");
         dispatcher.forward(request, response);
     }
 

@@ -7,7 +7,7 @@
 </head>
 <body>
 
-    <div align="center">
+    <div align="center">  
    <form action="<%=request.getContextPath()%>/insert" method="post">
         <table border="1" cellpadding="5">
            <input type="hidden" name="id"/>
