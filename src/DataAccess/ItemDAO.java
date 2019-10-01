@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import Business.String;
 import net.javaguides.usermanagement.model.User;
 
 /**
@@ -18,16 +19,15 @@ import net.javaguides.usermanagement.model.User;
  *
  */
 public class UserDAO {
-    private String jdbcURL = "jdbc:mysql://localhost:3306/demo?useSSL=false";
-    private String jdbcUsername = "root";
-    private String jdbcPassword = "root";
+    private String jdbcURL = "jdbc:mysql://remotemysql.com:3306/XdVvV2OhRA?useSSL=true";
+    private String jdbcUsername = "XdVvV2OhRA";
+    private String jdbcPassword = "qFzNXNgR0v";
 
-    private static final String INSERT_ITEM_SQL = "INSERT INTO book (title, author, price) VALUES (?, ?, ?)";
-
-    private static final String SELECT_ITEM_BY_ID = "select id,name,email,country from users where id =?";
-    private static final String SELECT_ALL_ITEMS = "select * from users";
-    private static final String DELETE_ITEMS_SQL = "DELETE FROM book where book_id = ?";
-    private static final String UPDATE_ITEM_SQL = "UPDATE book SET title = ?, author = ?, price = ? WHERE book_id = ?;"
+    private static final String INSERT_ITEM_SQL = "INSERT INTO item (title, description, quantity, price) VALUES (?, ?, ?, ?)";
+    private static final String SELECT_ITEM_BY_ID = "select id,title,description,quantity,price from item where id =?";
+    private static final String SELECT_ALL_ITEMS = "select * from item";
+    private static final String DELETE_ITEMS_SQL = "DELETE FROM item where id = ?";
+    private static final String UPDATE_ITEM_SQL = "UPDATE item SET title = ?, description = ?, quantity = ?, price = ? WHERE id = ?";
 
     public UserDAO() {}
 
@@ -46,13 +46,14 @@ public class UserDAO {
         return connection;
     }
 
-    public void insertUser(User user) throws SQLException {
-        System.out.println(INSERT_USERS_SQL);
+    public void insertItem(Item item) throws SQLException {
+        System.out.println(INSERT_ITEM_SQL);
         // try-with-resource statement will auto close the connection.
-        try (Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL)) {
-            preparedStatement.setString(1, user.getName());
-            preparedStatement.setString(2, user.getEmail());
-            preparedStatement.setString(3, user.getCountry());
+        try (Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(INSERT_ITEM_SQL)) {
+            preparedStatement.setString(1, item.getTitle());
+            preparedStatement.setString(2, item.getDescription());
+            preparedStatement.setString(3, item.getQuantity());
+            preparedStatement.setString(4, item.getPrice());
             System.out.println(preparedStatement);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -60,12 +61,12 @@ public class UserDAO {
         }
     }
 
-    public User selectUser(int id) {
-        User user = null;
+    public Item selectUser(int id) {
+    	Item item = null;
         // Step 1: Establishing a Connection
         try (Connection connection = getConnection();
             // Step 2:Create a statement using connection object
-            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_USER_BY_ID);) {
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ITEM_BY_ID);) {
             preparedStatement.setInt(1, id);
             System.out.println(preparedStatement);
             // Step 3: Execute the query or update query
@@ -76,15 +77,15 @@ public class UserDAO {
                 String name = rs.getString("name");
                 String email = rs.getString("email");
                 String country = rs.getString("country");
-                user = new User(id, name, email, country);
+                item = new Item(id, title, description, quantity, price);
             }
         } catch (SQLException e) {
             printSQLException(e);
         }
-        return user;
+        return item;
     }
 
-    public List < User > selectAllUsers() {
+    public List < Item > selectAllItems() {
 
         // using try-with-resources to avoid closing resources (boiler plate code)
         List < User > users = new ArrayList < > ();

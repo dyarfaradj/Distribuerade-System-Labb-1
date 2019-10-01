@@ -13,11 +13,14 @@ public class Item {
 	private String quantity;
 	private float price;
 	
+
+		
+	
 	public Item() {
 		
 	}
 	
-	public Item( String title, String description, String quantity, float price) {
+	public Item( String title, String description, String quantity, float price){
 		super();
 		this.title = title;
 		this.description = description;
