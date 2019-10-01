@@ -14,7 +14,7 @@
 <section class="navigation">
   <div class="nav-container">
     <div class="brand">
-      <a href="#!">Logo</a>
+      <a href="./">DYKA ONLINE SHOPPING!</a>
     </div>
     <nav>
       <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
@@ -33,9 +33,6 @@
             </li>
             <li>
               <a href="./new">Add new product</a>
-            </li>
-            <li>
-              <a href="#!">Graphic Design</a>
             </li>
           </ul>
         </li>
