@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class ControllerServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private BookDAO bookDAO;
+    private ItemDAO bookDAO;
  
     public void init() {
         String jdbcURL = getServletContext().getInitParameter("jdbcURL");
@@ -68,22 +68,22 @@ public class ControllerServlet extends HttpServlet {
             throws SQLException, IOException, ServletException {
         List<Book> listBook = bookDAO.listAllBooks();
         request.setAttribute("listBook", listBook);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("BookList.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("ItemList.jsp");
         dispatcher.forward(request, response);
     }
  
     private void showNewForm(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("BookForm.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("ItemForm.jsp");
         dispatcher.forward(request, response);
     }
  
     private void showEditForm(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        Book existingBook = bookDAO.getBook(id);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("BookForm.jsp");
-        request.setAttribute("book", existingBook);
+        Book existingItem = bookDAO.getItem(id);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("ItemForm.jsp");
+        request.setAttribute("book", existingItem);
         dispatcher.forward(request, response);
  
     }
@@ -94,8 +94,8 @@ public class ControllerServlet extends HttpServlet {
         String author = request.getParameter("author");
         float price = Float.parseFloat(request.getParameter("price"));
  
-        Book newBook = new Book(title, author, price);
-        bookDAO.insertBook(newBook);
+        Book newItem = new Book(title, author, price);
+        bookDAO.insertBook(newItem);
         response.sendRedirect("list");
     }
  
@@ -106,8 +106,8 @@ public class ControllerServlet extends HttpServlet {
         String author = request.getParameter("author");
         float price = Float.parseFloat(request.getParameter("price"));
  
-        Book book = new Book(id, title, author, price);
-        bookDAO.updateBook(book);
+        Item book = new Item(id, title, author, price);
+        bookDAO.updateBook(item);
         response.sendRedirect("list");
     }
  
@@ -115,8 +115,8 @@ public class ControllerServlet extends HttpServlet {
             throws SQLException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
  
-        Book book = new Book(id);
-        bookDAO.deleteBook(book);
+        Item item = new Item(id);
+        bookDAO.deleteBook(item);
         response.sendRedirect("list");
  
     }

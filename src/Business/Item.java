@@ -9,7 +9,8 @@ import java.io.Serializable;/**
 public class Item implements Serializable {
 	private int id;
 	private String title;
-	private String author;
+	private String description;
+	private String quantity;
 	private float price;
  
     public Item() {
