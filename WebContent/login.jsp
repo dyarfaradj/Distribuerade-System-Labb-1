@@ -5,24 +5,19 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css" />
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
- <div align="center">
-  <h1>Employee Login Form</h1>
-  <form action="<%=request.getContextPath()%>/login" method="post">
-   <table style="with: 100%">
-    <tr>
-     <td>UserName</td>
-     <td><input type="text" name="username" /></td>
-    </tr>
-    <tr>
-     <td>Password</td>
-     <td><input type="password" name="password" /></td>
-    </tr>
 
-   </table>
-   <input type="submit" value="Submit" />
-  </form>
- </div>
+<div class="logo"></div>
+<div class="login-block">
+    <h1>Login</h1>
+    <form action="<%=request.getContextPath()%>/login" method="post">
+    <input type="text" name="username" value="" placeholder="Username" id="username" />
+    <input type="password" name="password" value="" placeholder="Password" id="password" />
+    <button>Submit</button>
+    </form>
+</div>
 </body>
 </html>

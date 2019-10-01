@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="container">  
-  <form id="contact" action="" method="post">
+  <form id="contact" action="<%= request.getContextPath() %>/register" method="post">
     <h3>Registration</h3>
     <h4>Fill in the details below to sign up!</h4>
     <fieldset>

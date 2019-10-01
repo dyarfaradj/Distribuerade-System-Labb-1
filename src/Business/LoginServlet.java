@@ -12,9 +12,6 @@ import javax.servlet.http.HttpSession;
 
 import DataAccess.LoginDao;
 
-/**
- * @email Ramesh Fadatare
- */
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
