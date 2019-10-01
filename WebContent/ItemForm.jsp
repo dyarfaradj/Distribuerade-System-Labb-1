@@ -16,31 +16,31 @@
         </h2>
     </center>
     <div align="center">
-        <c:if test="${book != null}">
+        <c:if test="${item != null}">
             <form action="update" method="post">
         </c:if>
-        <c:if test="${book == null}">
+        <c:if test="${item == null}">
             <form action="insert" method="post">
         </c:if>
         <table border="1" cellpadding="5">
             <caption>
                 <h2>
-                    <c:if test="${book != null}">
+                    <c:if test="${item != null}">
                         Edit Book
                     </c:if>
-                    <c:if test="${book == null}">
+                    <c:if test="${item == null}">
                         Add New Book
                     </c:if>
                 </h2>
             </caption>
-                <c:if test="${book != null}">
-                    <input type="hidden" name="id" value="<c:out value='${book.id}' />" />
+                <c:if test="${item != null}">
+                    <input type="hidden" name="id" value="<c:out value='${item.id}' />" />
                 </c:if>           
             <tr>
                 <th>Title: </th>
                 <td>
                     <input type="text" name="title" size="45"
-                            value="<c:out value='${book.title}' />"
+                            value="<c:out value='${item.title}' />"
                         />
                 </td>
             </tr>
@@ -48,7 +48,7 @@
                 <th>Author: </th>
                 <td>
                     <input type="text" name="author" size="45"
-                            value="<c:out value='${book.author}' />"
+                            value="<c:out value='${item.price}' />"
                     />
                 </td>
             </tr>
@@ -56,7 +56,7 @@
                 <th>Price: </th>
                 <td>
                     <input type="text" name="price" size="5"
-                            value="<c:out value='${book.price}' />"
+                            value="<c:out value='${item.price}' />"
                     />
                 </td>
             </tr>
