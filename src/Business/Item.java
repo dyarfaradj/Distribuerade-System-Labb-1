@@ -28,6 +28,15 @@ public class Item {
 		this.price = price;
 	}
 	
+	public Item(int id, String title, String description, String quantity, float price){
+		super();
+        this.id = id;
+		this.title = title;
+		this.description = description;
+		this.quantity = quantity;
+		this.price = price;
+	}
+	
 	public int getId() {
 		return id;
 	}
