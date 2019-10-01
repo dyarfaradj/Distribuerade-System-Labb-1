@@ -14,14 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import DataAccess.ItemDAO;
 import Business.Item;
 
-/**
- * ControllerServlet.java
- * This servlet acts as a page controller for the application, handling all
- * requests from the user.
- * @email Ramesh Fadatare
- */
 
-@WebServlet("/")
+@WebServlet("/ItemForm")
 public class ItemServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private ItemDAO itemDAO;
@@ -69,7 +63,11 @@ public class ItemServlet extends HttpServlet {
     throws SQLException, IOException, ServletException {
         List < Item > listItem = itemDAO.selectAllItems();
         request.setAttribute("listItem", listItem);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("ItemList.jsp");
+        for(int i=0; i<listItem.size(); i++)
+        {
+        	System.out.println(listItem.get(i).getTitle());
+        }
+        RequestDispatcher dispatcher = request.getRequestDispatcher("user-list.jsp");
         dispatcher.forward(request, response);
     }
 

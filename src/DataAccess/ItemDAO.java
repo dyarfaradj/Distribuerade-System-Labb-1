@@ -27,7 +27,7 @@ public class ItemDAO {
     protected Connection getConnection() {
         Connection connection = null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -76,6 +76,7 @@ public class ItemDAO {
         } catch (SQLException e) {
             printSQLException(e);
         }
+        System.out.println(item);
         return item;
     }
 
