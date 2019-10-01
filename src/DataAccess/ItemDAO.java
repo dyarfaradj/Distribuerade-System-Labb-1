@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import Business.String;
+import Business.Items;
 import net.javaguides.usermanagement.model.Items;
 
 /**
