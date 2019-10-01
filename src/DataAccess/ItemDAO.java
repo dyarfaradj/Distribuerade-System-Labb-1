@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Business.Items;
-import net.javaguides.usermanagement.model.Items;
 
 /**
  * AbstractDAO.java This DAO class provides CRUD database operations for the
