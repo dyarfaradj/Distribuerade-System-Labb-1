@@ -14,8 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import DataAccess.ItemDAO;
 import Business.Item;
 
-
-@WebServlet("/")
+@WebServlet(name="ItemServlet", urlPatterns={"/new", "/insert", "/delete", "/edit", "/update", "/list"})
 public class ItemServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private ItemDAO itemDAO;
@@ -54,7 +53,6 @@ public class ItemServlet extends HttpServlet {
                 	listItem(request, response);
                     break;
                 default:
-                    listItem(request, response);
                     break;
             }
         } catch (SQLException ex) {
@@ -76,7 +74,7 @@ public class ItemServlet extends HttpServlet {
 
     private void showNewForm(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("ItemList.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("ItemForm.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -84,7 +82,7 @@ public class ItemServlet extends HttpServlet {
     throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         Item existingItem = itemDAO.selectItem(id);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("ItemList.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("ItemForm.jsp");
         request.setAttribute("item", existingItem);
         dispatcher.forward(request, response);
 
