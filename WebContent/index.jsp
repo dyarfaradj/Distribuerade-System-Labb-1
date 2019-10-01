@@ -5,9 +5,9 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css" />
 </head>
 <body>
-asdasd
 <div style="display: grid;">
 <a href="./login.jsp"> LOGIN PAGE </a>
 <a href="./register.jsp"> REGISTER PAGE </a>

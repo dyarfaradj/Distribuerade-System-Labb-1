@@ -35,7 +35,6 @@ public class UserDao {
             result = preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-            // process sql exception
             printSQLException(e);
         }
         return result;

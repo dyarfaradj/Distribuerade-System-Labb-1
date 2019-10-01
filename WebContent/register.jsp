@@ -5,39 +5,38 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>User registration</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css" />
 </head>
 <body>
- <div align="center">
-  <h1>User Register Form</h1>
-  <form action="<%= request.getContextPath() %>/register" method="post">
-   <table style="with: 80%">
-    <tr>
-     <td>First Name</td>
-     <td><input type="text" name="firstName" /></td>
-    </tr>
-    <tr>
-     <td>Last Name</td>
-     <td><input type="text" name="lastName" /></td>
-    </tr>
-    <tr>
-     <td>UserName</td>
-     <td><input type="text" name="username" /></td>
-    </tr>
-    <tr>
-     <td>Password</td>
-     <td><input type="password" name="password" /></td>
-    </tr>
-    <tr>
-     <td>Address</td>
-     <td><input type="text" name="address" /></td>
-    </tr>
-    <tr>
-     <td>Contact No</td>
-     <td><input type="text" name="contact" /></td>
-    </tr>
-   </table>
-   <input type="submit" value="Submit" />
+<div class="container">  
+  <form id="contact" action="" method="post">
+    <h3>Registration</h3>
+    <h4>Fill in the details below to sign up!</h4>
+    <fieldset>
+      <input placeholder="Your name" name="firstName" type="text" tabindex="1" required autofocus>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your last name" name="lastName" type="text" tabindex="2" required autofocus>
+    </fieldset>
+     <fieldset>
+      <input placeholder="Your username" name="username" type="text" tabindex="3" required autofocus>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your password" name="password" type="password" tabindex="4" required autofocus>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your address" name="address" type="text" tabindex="5" required autofocus>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Email Address" name="contact" type="email" tabindex="6" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Phone Number (optional)" type="tel" tabindex="7" required>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+    </fieldset>
   </form>
- </div>
+</div>
 </body>
 </html>
