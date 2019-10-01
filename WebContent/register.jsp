@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css" />
 </head>
 <body>
+<jsp:include page="navbar.jsp"/>
 <div class="container">  
   <form id="contact" action="<%= request.getContextPath() %>/register" method="post">
     <h3>Registration</h3>

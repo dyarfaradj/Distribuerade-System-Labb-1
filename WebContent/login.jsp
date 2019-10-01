@@ -9,7 +9,7 @@
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
-
+<jsp:include page="navbar.jsp"/>
 <div class="logo"></div>
 <div class="login-block">
     <h1>Login</h1>
