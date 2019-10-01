@@ -74,9 +74,10 @@ public class UserDAO {
 
             // Step 4: Process the ResultSet object.
             while (rs.next()) {
-                String name = rs.getString("name");
-                String email = rs.getString("email");
-                String country = rs.getString("country");
+                String title = rs.getString("title");
+                String description = rs.getString("description");
+                String quantity = rs.getString("quantity");
+                float price = rs.getString("price");
                 item = new Item(id, title, description, quantity, price);
             }
         } catch (SQLException e) {
@@ -88,12 +89,12 @@ public class UserDAO {
     public List < Item > selectAllItems() {
 
         // using try-with-resources to avoid closing resources (boiler plate code)
-        List < User > users = new ArrayList < > ();
+        List < Item > items = new ArrayList < > ();
         // Step 1: Establishing a Connection
         try (Connection connection = getConnection();
 
             // Step 2:Create a statement using connection object
-            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_USERS);) {
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_ITEMS);) {
             System.out.println(preparedStatement);
             // Step 3: Execute the query or update query
             ResultSet rs = preparedStatement.executeQuery();
@@ -101,33 +102,35 @@ public class UserDAO {
             // Step 4: Process the ResultSet object.
             while (rs.next()) {
                 int id = rs.getInt("id");
-                String name = rs.getString("name");
-                String email = rs.getString("email");
-                String country = rs.getString("country");
-                users.add(new User(id, name, email, country));
+                String title = rs.getString("title");
+                String description = rs.getString("description");
+                String quantity = rs.getString("quantity");
+                float price = rs.getString("price");;
+                items.add(new Item(id, title, description, quantity, price));
             }
         } catch (SQLException e) {
             printSQLException(e);
         }
-        return users;
+        return items;
     }
 
     public boolean deleteUser(int id) throws SQLException {
         boolean rowDeleted;
-        try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement(DELETE_USERS_SQL);) {
+        try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement(DELETE_ITEMS_SQL);) {
             statement.setInt(1, id);
             rowDeleted = statement.executeUpdate() > 0;
         }
         return rowDeleted;
     }
 
-    public boolean updateUser(User user) throws SQLException {
+    public boolean updateUser(Item item) throws SQLException {
         boolean rowUpdated;
-        try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement(UPDATE_USERS_SQL);) {
-            statement.setString(1, user.getName());
-            statement.setString(2, user.getEmail());
-            statement.setString(3, user.getCountry());
-            statement.setInt(4, user.getId());
+        try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement(UPDATE_ITEM_SQL);) {
+            statement.setString(1, item.getTitle());
+            statement.setString(2, item.getDescription());
+            statement.setString(3, item.getQuantity());
+            statement.setString(4, item.getPrice());
+            statement.setInt(5, item.getId());
 
             rowUpdated = statement.executeUpdate() > 0;
         }
