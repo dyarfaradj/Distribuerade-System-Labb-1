@@ -8,5 +8,9 @@
 </head>
 <body>
 asdasd
+<div style="display: grid;">
+<a href="./login.jsp"> LOGIN PAGE </a>
+<a href="./register.jsp"> REGISTER PAGE </a>
+</div>
 </body>
 </html>
