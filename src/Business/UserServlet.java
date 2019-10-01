@@ -49,6 +49,6 @@ public class UserServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        response.sendRedirect("employeedetails.jsp");
+        response.sendRedirect("index.jsp");
     }
 }
