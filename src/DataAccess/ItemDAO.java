@@ -54,7 +54,7 @@ public class ItemDAO {
         }
     }
 
-    public Item selectUser(int id) {
+    public Item selectItem(int id) {
     	Item item = null;
         // Step 1: Establishing a Connection
         try (Connection connection = getConnection();
@@ -107,7 +107,7 @@ public class ItemDAO {
         return items;
     }
 
-    public boolean deleteUser(int id) throws SQLException {
+    public boolean deleteItem(int id) throws SQLException {
         boolean rowDeleted;
         try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement(DELETE_ITEMS_SQL);) {
             statement.setInt(1, id);
@@ -116,7 +116,7 @@ public class ItemDAO {
         return rowDeleted;
     }
 
-    public boolean updateUser(Item item) throws SQLException {
+    public boolean updateItem(Item item) throws SQLException {
         boolean rowUpdated;
         try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement(UPDATE_ITEM_SQL);) {
             statement.setString(1, item.getTitle());
