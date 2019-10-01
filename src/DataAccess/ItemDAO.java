@@ -18,7 +18,7 @@ import net.javaguides.usermanagement.model.Items;
  * @author Ramesh Fadatare
  *
  */
-public class UserDAO {
+public class ItemDAO {
     private String jdbcURL = "jdbc:mysql://remotemysql.com:3306/XdVvV2OhRA?useSSL=true";
     private String jdbcUsername = "XdVvV2OhRA";
     private String jdbcPassword = "qFzNXNgR0v";
@@ -29,7 +29,7 @@ public class UserDAO {
     private static final String DELETE_ITEMS_SQL = "DELETE FROM item where id = ?";
     private static final String UPDATE_ITEM_SQL = "UPDATE item SET title = ?, description = ?, quantity = ?, price = ? WHERE id = ?";
 
-    public UserDAO() {}
+    public ItemDAO() {}
 
     protected Connection getConnection() {
         Connection connection = null;
