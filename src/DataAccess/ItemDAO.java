@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import Business.Items;
+import Business.Item;
 
 /**
  * AbstractDAO.java This DAO class provides CRUD database operations for the
