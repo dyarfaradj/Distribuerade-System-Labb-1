@@ -1,4 +1,4 @@
-package net.javaguides.usermanagement.dao;
+package DataAccess;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Business.String;
-import net.javaguides.usermanagement.model.User;
+import net.javaguides.usermanagement.model.Items;
 
 /**
  * AbstractDAO.java This DAO class provides CRUD database operations for the
