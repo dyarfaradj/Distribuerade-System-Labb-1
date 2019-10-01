@@ -22,8 +22,8 @@ import Business.Item;
  */
 
 @WebServlet("/")
-public class UserServlet extends HttpServlet {
-    private static final long serialVersionUID = 1 L;
+public class ItemServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
     private ItemDAO itemDAO;
 
     public void init() {
