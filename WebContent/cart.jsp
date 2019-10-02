@@ -10,16 +10,16 @@
 <div style="color: white; text-align: center">
     </div>
 <div class="table-title">
-<h3>List of all items</h3>
+<h3>Din varukorg!</h3>
 </div>
 
 <table class="table-fill">
 <thead>
 <tr>
-<th class="text-left">Product_Id</th>
-<th class="text-left">Product_Name</th>
-<th class="text-left">Quantity</th>
-<th class="text-left">Price</th>
+<th class="text-left">Produkt ID</th>
+<th class="text-left">Produkt Namn</th>
+<th class="text-left">Antal</th>
+<th class="text-left">Pris</th>
 </tr>
 </thead>
 <tbody class="table-hover">
