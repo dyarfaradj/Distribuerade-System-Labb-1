@@ -41,19 +41,21 @@
             </li>
           </ul>
         </li>
-        <li>
-          <a href="./register.jsp">Register</a>
-        </li>
-        <li>
 		 <c:choose>
 		    <c:when test="${username != null}">
+		    <li>
 		        <a href="./logout">Logout</a>
+		     </li>
 		    </c:when>    
 		    <c:otherwise>
+		    <li>
+	          <a href="./register.jsp">Register</a>
+	        </li>
+		    <li>
 		        <a href="./login.jsp">Login</a>
+		    </li>
 		    </c:otherwise>
 		</c:choose>
-        </li>
         <li>
           <a href="#!">KUND</a>
           <ul class="nav-dropdown">

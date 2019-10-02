@@ -36,10 +36,8 @@ public class LoginServlet extends HttpServlet {
             switch (action) {
                 case "/login":
                 	login(request, response);
-                	System.out.println("111xs");
                     break;
                 case "/logout":
-                	System.out.println("22oxs");
                     logout(request, response);
                     break;
                 default:
