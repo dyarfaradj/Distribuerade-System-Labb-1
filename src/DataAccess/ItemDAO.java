@@ -16,11 +16,11 @@ public class ItemDAO {
     private String jdbcUsername = "XdVvV2OhRA";
     private String jdbcPassword = "qFzNXNgR0v";
 
-    private static final String INSERT_ITEM_SQL = "INSERT INTO item (title, description, quantity, price) VALUES (?, ?, ?, ?)";
-    private static final String SELECT_ITEM_BY_ID = "select id,title,description,quantity,price from item where id =?";
-    private static final String SELECT_ALL_ITEMS = "select * from item";
-    private static final String DELETE_ITEMS_SQL = "DELETE FROM item where id = ?";
-    private static final String UPDATE_ITEM_SQL = "UPDATE item SET title = ?, description = ?, quantity = ?, price = ? WHERE id = ?";
+    private static final String INSERT_ITEM_SQL = "INSERT INTO product (cat_id, product_name, price, stock) VALUES (?, ?, ?, ?)";
+    private static final String SELECT_ITEM_BY_ID = "select product_id,product_name,cat_id,stock,price from product where product_id =?";
+    private static final String SELECT_ALL_ITEMS = "select * from product";
+    private static final String DELETE_ITEMS_SQL = "DELETE FROM product where product_id = ?";
+    private static final String UPDATE_ITEM_SQL = "UPDATE product SET product_name = ?, cat_id = ?, stock = ?, price = ? WHERE product_id = ?";
 
     public ItemDAO() {}
 
@@ -43,10 +43,10 @@ public class ItemDAO {
         System.out.println(INSERT_ITEM_SQL);
         // try-with-resource statement will auto close the connection.
         try (Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(INSERT_ITEM_SQL)) {
-            preparedStatement.setString(1, item.getTitle());
-            preparedStatement.setString(2, item.getDescription());
-            preparedStatement.setString(3, item.getQuantity());
-            preparedStatement.setFloat(4, item.getPrice());
+            preparedStatement.setInt(1, item.getCat_id());
+            preparedStatement.setString(2, item.getProduct_name());
+            preparedStatement.setFloat(3, item.getPrice());
+            preparedStatement.setInt(4, item.getStock());
             System.out.println(preparedStatement);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -54,24 +54,23 @@ public class ItemDAO {
         }
     }
 
-    public Item selectItem(int id) {
+    public Item selectItem(int product_id) {
     	Item item = null;
         // Step 1: Establishing a Connection
         try (Connection connection = getConnection();
             // Step 2:Create a statement using connection object
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ITEM_BY_ID);) {
-            preparedStatement.setInt(1, id);
+            preparedStatement.setInt(1, product_id);
             System.out.println(preparedStatement);
             // Step 3: Execute the query or update query
             ResultSet rs = preparedStatement.executeQuery();
-
             // Step 4: Process the ResultSet object.
             while (rs.next()) {
-                String title = rs.getString("title");
-                String description = rs.getString("description");
-                String quantity = rs.getString("quantity");
-                float price = rs.getFloat("price");
-                item = new Item(id, title, description, quantity, price);
+                String product_name = rs.getString("product_name");
+                int cat_id = rs.getInt("cat_id");
+                int stock = rs.getInt("stock");
+                int price = rs.getInt("price");
+                item = new Item(product_id, product_name, cat_id, stock, price);
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -95,12 +94,12 @@ public class ItemDAO {
 
             // Step 4: Process the ResultSet object.
             while (rs.next()) {
-                int id = rs.getInt("id");
-                String title = rs.getString("title");
-                String description = rs.getString("description");
-                String quantity = rs.getString("quantity");
-                float price = rs.getFloat("price");;
-                items.add(new Item(id, title, description, quantity, price));
+                int product_id = rs.getInt("product_id");
+                String product_name = rs.getString("product_name");
+                int cat_id = rs.getInt("cat_id");
+                int stock = rs.getInt("stock");
+                int price = rs.getInt("price");
+                items.add(new Item(product_id, product_name, cat_id, stock, price));
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -108,10 +107,10 @@ public class ItemDAO {
         return items;
     }
 
-    public boolean deleteItem(int id) throws SQLException {
+    public boolean deleteItem(int product_id) throws SQLException {
         boolean rowDeleted;
         try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement(DELETE_ITEMS_SQL);) {
-            statement.setInt(1, id);
+            statement.setInt(1, product_id);
             rowDeleted = statement.executeUpdate() > 0;
         }
         return rowDeleted;
@@ -120,11 +119,11 @@ public class ItemDAO {
     public boolean updateItem(Item item) throws SQLException {
         boolean rowUpdated;
         try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement(UPDATE_ITEM_SQL);) {
-            statement.setString(1, item.getTitle());
-            statement.setString(2, item.getDescription());
-            statement.setString(3, item.getQuantity());
+            statement.setString(1, item.getProduct_name());
+            statement.setInt(2, item.getCat_id());
+            statement.setInt(3, item.getStock());
             statement.setFloat(4, item.getPrice());
-            statement.setInt(5, item.getId());
+            statement.setInt(5, item.getProduct_id());
 
             rowUpdated = statement.executeUpdate() > 0;
         }

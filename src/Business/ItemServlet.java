@@ -64,10 +64,10 @@ public class ItemServlet extends HttpServlet {
     throws SQLException, IOException, ServletException {
         List < Item > listItem = itemDAO.selectAllItems();
         request.setAttribute("listItem", listItem);
-//        for(int i=0; i<listItem.size(); i++)
-//        {
-//        	System.out.println(listItem.get(i).getTitle());
-//        }
+        // for(int i=0; i<listItem.size(); i++)
+        //     {
+        //     	System.out.println(listItem.get(i).getProduct_id());
+        //    }
         RequestDispatcher dispatcher = request.getRequestDispatcher("ItemList.jsp");
         dispatcher.forward(request, response);
     }
@@ -80,8 +80,9 @@ public class ItemServlet extends HttpServlet {
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response)
     throws SQLException, ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        Item existingItem = itemDAO.selectItem(id);
+        int product_id = Integer.parseInt(request.getParameter("product_id"));
+        System.out.println(product_id);
+        Item existingItem = itemDAO.selectItem(product_id);
         RequestDispatcher dispatcher = request.getRequestDispatcher("ItemForm.jsp");
         request.setAttribute("item", existingItem);
         dispatcher.forward(request, response);
@@ -90,32 +91,31 @@ public class ItemServlet extends HttpServlet {
 
     private void insertItem(HttpServletRequest request, HttpServletResponse response)
     throws SQLException, IOException {
-        String title = request.getParameter("title");
-        String description = request.getParameter("description");
-        String quantity = request.getParameter("quantity");
-        float price = Float.parseFloat(request.getParameter("price"));
-        Item newItem = new Item(title, description, quantity, price);
+        String product_name = request.getParameter("product_name");
+        int cat_id = Integer.parseInt(request.getParameter("cat_id"));
+        int stock = Integer.parseInt(request.getParameter("stock"));
+        int price = Integer.parseInt(request.getParameter("price"));
+        Item newItem = new Item(product_name, cat_id, stock, price);
         itemDAO.insertItem(newItem);
         response.sendRedirect("list");
     }
 
     private void updateItem(HttpServletRequest request, HttpServletResponse response)
     throws SQLException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        String title = request.getParameter("title");
-        String description = request.getParameter("description");
-        String quantity = request.getParameter("quantity");
-        float price = Float.parseFloat(request.getParameter("price"));
-
-        Item item = new Item(id, title, description, quantity, price);
+        int product_id = Integer.parseInt(request.getParameter("product_id"));
+        String product_name = request.getParameter("product_name");
+        int cat_id = Integer.parseInt(request.getParameter("cat_id"));
+        int stock = Integer.parseInt(request.getParameter("stock"));
+        int price = Integer.parseInt(request.getParameter("price"));
+        Item item = new Item(product_id, product_name, cat_id, stock, price);
         itemDAO.updateItem(item);
         response.sendRedirect("list");
     }
 
     private void deleteItem(HttpServletRequest request, HttpServletResponse response)
     throws SQLException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        itemDAO.deleteItem(id);
+        int product_id = Integer.parseInt(request.getParameter("product_id"));
+        itemDAO.deleteItem(product_id);
         response.sendRedirect("list");
 
     }

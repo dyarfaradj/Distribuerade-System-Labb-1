@@ -32,29 +32,29 @@
             </caption>
             <tbody class="table-hover">
                 <c:if test="${item != null}">
-                    <input type="hidden" name="id" value="<c:out value='${item.id}' />" />
+                    <input type="hidden" name="product_id" value="<c:out value='${item.product_id}' />" />
                 </c:if>           
             <tr>
                 <th class="text-left">Title: </th>
                 <td>
-                    <input  type="text" name="title" size="45"
-                            value="<c:out value='${item.title}' />"
+                    <input  type="text" name="product_name" size="45"
+                            value="<c:out value='${item.product_name}' />"
                         />
                 </td>
             </tr>
             <tr>
                 <th class="text-left">Description: </th>
                 <td>
-                    <input type="text" name="description" size="45"
-                            value="<c:out value='${item.description}' />"
+                    <input type="text" name="cat_id" size="45"
+                            value="<c:out value='${item.cat_id}' />"
                     />
                 </td>
             </tr>
             <tr>
                 <th class="text-left">Quantity: </th>
                 <td>
-                    <input type="text" name="quantity" size="5"
-                            value="<c:out value='${item.quantity}' />"
+                    <input type="text" name="stock" size="5"
+                            value="<c:out value='${item.stock}' />"
                     />
                 </td>
             </tr>

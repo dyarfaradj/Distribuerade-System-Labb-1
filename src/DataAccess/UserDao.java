@@ -10,9 +10,9 @@ import Business.User;;
 public class UserDao {
 
     public int registerEmployee(User user) throws ClassNotFoundException {
-        String INSERT_USERS_SQL = "INSERT INTO users" +
-            "  (first_name, last_name, username, password, address, email) VALUES " +
-            " (?, ?, ?, ?,?,?);";
+        String INSERT_USERS_SQL = "INSERT INTO user_reg" +
+            "  (name, user_name, passwd, address, mobile_no) VALUES " +
+            " (?, ?, ?, ?,?);";
 
         int result = 0;
 
@@ -24,11 +24,10 @@ public class UserDao {
             // Step 2:Create a statement using connection object
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL)) {
             preparedStatement.setString(1, user.getFirstName());
-            preparedStatement.setString(2, user.getLastName());
-            preparedStatement.setString(3, user.getUsername());
-            preparedStatement.setString(4, user.getPassword());
-            preparedStatement.setString(5, user.getAddress());
-            preparedStatement.setString(6, user.getContact());
+            preparedStatement.setString(2, user.getUsername());
+            preparedStatement.setString(3, user.getPassword());
+            preparedStatement.setString(4, user.getAddress());
+            preparedStatement.setString(5, user.getContact());
 
             System.out.println(preparedStatement);
             // Step 3: Execute the query or update query

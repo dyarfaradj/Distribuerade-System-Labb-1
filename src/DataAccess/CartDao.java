@@ -42,7 +42,7 @@ public class CartDao {
 				
 				pstmt.close();
 				
-				String sql="INSERT INTO cart(user_id,product_id,quantity,price)VALUES(?,?,?,?)";
+				String sql="INSERT INTO cart(uid,product_id,quantity,price)VALUES(?,?,?,?)";
 				
 				int total_price = price * quantity;
 				
@@ -141,6 +141,7 @@ public static int getStock(int productId) {
 		}
 		return carts;
 	}
+
 
 
 	public static int getTotal(int userId) {

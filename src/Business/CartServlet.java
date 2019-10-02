@@ -14,7 +14,7 @@ import javax.servlet.RequestDispatcher;
 
 import DataAccess.CartDao;
 
-@WebServlet("/CartServlet")
+@WebServlet("/shoppingcart")
 public class CartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -30,10 +30,12 @@ public class CartServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 	   
-    	int id= (int) request.getSession().getAttribute("id");
+    	//int id= (int) request.getSession().getAttribute("id");
+    	int id= 1;
 		
-		int productId= Integer.parseInt(request.getParameter("productId"));
-		
+		//int productId= Integer.parseInt(request.getParameter("productId"));
+    	
+		int productId= 1;
 		int quantity = 1;
 		
 		int stockId = CartDao.getStock(productId);

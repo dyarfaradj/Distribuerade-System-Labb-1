@@ -7,11 +7,11 @@ package Business;
  *
  */
 public class Item {
-	private int id;
-	private String title;
-	private String description;
-	private String quantity;
-	private float price;
+	private int product_id;
+	private String product_name;
+	private int cat_id;
+	private int stock;
+	private int price;
 	
 
 		
@@ -20,53 +20,67 @@ public class Item {
 		
 	}
 	
-	public Item( String title, String description, String quantity, float price){
+	public Item( String product_name, int cat_id, int stock, int price){
 		super();
-		this.title = title;
-		this.description = description;
-		this.quantity = quantity;
+		this.product_name = product_name;
+		this.cat_id = cat_id;
+		this.stock = stock;
 		this.price = price;
 	}
-	
-	public Item(int id, String title, String description, String quantity, float price){
+
+
+	public Item(int product_id, String product_name, int cat_id, int stock, int price){
 		super();
-        this.id = id;
-		this.title = title;
-		this.description = description;
-		this.quantity = quantity;
+        this.product_id = product_id;
+		this.product_name = product_name;
+		this.cat_id = cat_id;
+		this.stock = stock;
 		this.price = price;
 	}
-	
-	public int getId() {
-		return id;
+
+	public int getProduct_id() {
+		return product_id;
 	}
-	public void setId() {
-		this.id = id;
+
+	public void setProduct_id(int product_id) {
+		this.product_id = product_id;
 	}
-	public String getTitle() {
-		return title;
+
+
+
+	public String getProduct_name() {
+		return product_name;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
 	}
-	public String getDescription() {
-		return description;
+
+	public int getCat_id() {
+		return cat_id;
 	}
-	public void setDescription(String description) {
-		this.description = description;
+
+	public void setCat_id(int cat_id) {
+		this.cat_id = cat_id;
 	}
-	public String getQuantity() {
-		return quantity;
+
+	public int getStock() {
+		return stock;
 	}
-	public void setQuantity(String quantity) {
-		this.quantity = quantity;
+
+	public void setStock(int stock) {
+		this.stock = stock;
 	}
-	public float getPrice() {
+
+	public int getPrice() {
 		return price;
 	}
-	public void setPrice(float price) {
+
+	public void setPrice(int price) {
 		this.price = price;
 	}
+	
+
  
   
 }
