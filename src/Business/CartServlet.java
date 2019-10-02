@@ -50,8 +50,7 @@ public class CartServlet extends HttpServlet {
     	    }
 	private void addToCart(HttpServletRequest request, HttpServletResponse response)
 		    throws SQLException, IOException, ServletException {
-		//int id= (int) request.getSession().getAttribute("id");
-    	int id= 1;
+		int user_id= (int) request.getSession().getAttribute("user_id");
 		
 		//int productId= Integer.parseInt(request.getParameter("productId"));
     	
@@ -61,24 +60,17 @@ public class CartServlet extends HttpServlet {
 		int stockId = CartDao.getStock(productId);
 		
 		if(stockId >=quantity) {
-			CartDao.insertIntoCart(id,productId,quantity);	
+			CartDao.insertIntoCart(user_id,productId,quantity);	
 		}
 		
-		List<Cart> result = new ArrayList<Cart>();
-		
-		result = CartDao.getProducts(id);
-		
-		request.setAttribute("Cart", result);
-		
-		
-		RequestDispatcher rd=request.getRequestDispatcher("/cart.jsp");
-		rd.forward(request, response);
+		showCart(request, response);
 	}
 	
 	private void showCart(HttpServletRequest request, HttpServletResponse response)
 		    throws SQLException, IOException, ServletException {
+		int user_id= (int) request.getSession().getAttribute("user_id");
 		
-		List < Cart > listItem = cartDAO.selectAllItems(1);
+		List < Cart > listItem = cartDAO.selectAllItems(user_id);
         request.setAttribute("listItem", listItem);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/cart.jsp");
         dispatcher.forward(request, response);

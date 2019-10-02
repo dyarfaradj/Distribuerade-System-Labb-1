@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,10 +12,14 @@
 <script src="${pageContext.request.contextPath}/js/navbar.js"></script>
 </head>
 <body>
+<% 	HttpSession sess=request.getSession(true);
+	String username=(String)sess.getAttribute("username");
+	Integer user_id=(Integer )sess.getAttribute("user_id"); %>
+
 <section class="navigation">
   <div class="nav-container">
     <div class="brand">
-      <a href="./">DYKA ONLINE SHOPPING!</a>
+      <a href="./">DYKA ONLINE SHOPPING!<%out.println(" VÄLKOMMEN "+username + " ID: " + user_id); %></a>
     </div>
     <nav>
       <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
@@ -40,7 +45,14 @@
           <a href="./register.jsp">Register</a>
         </li>
         <li>
-          <a href="./login.jsp">Login</a>
+		 <c:choose>
+		    <c:when test="${username != null}">
+		        <a href="./logout">Logout</a>
+		    </c:when>    
+		    <c:otherwise>
+		        <a href="./login.jsp">Login</a>
+		    </c:otherwise>
+		</c:choose>
         </li>
         <li>
           <a href="#!">KUND</a>

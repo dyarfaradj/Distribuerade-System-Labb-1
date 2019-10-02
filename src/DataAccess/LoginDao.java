@@ -34,6 +34,32 @@ public class LoginDao {
         }
         return status;
     }
+    
+    public int getUserID(LoginBean loginBean) throws ClassNotFoundException {
+        int userID = 0;
+
+        Class.forName("com.mysql.cj.jdbc.Driver");
+
+        try (Connection connection = DriverManager
+            .getConnection("jdbc:mysql://remotemysql.com:3306/XdVvV2OhRA?useSSL=true", "XdVvV2OhRA", "qFzNXNgR0v");
+
+            // Step 2:Create a statement using connection object
+            PreparedStatement preparedStatement = connection
+            .prepareStatement("select * from user_reg where user_name = ? and passwd = ? ")) {
+            preparedStatement.setString(1, loginBean.getUsername());
+            preparedStatement.setString(2, loginBean.getPassword());
+
+            System.out.println(preparedStatement);
+            ResultSet rs = preparedStatement.executeQuery();
+            rs.next();
+            userID = rs.getInt("uid");
+
+        } catch (SQLException e) {
+            // process sql exception
+            printSQLException(e);
+        }
+        return userID;
+    }
 
     private void printSQLException(SQLException ex) {
         for (Throwable e: ex) {
