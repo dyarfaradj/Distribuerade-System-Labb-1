@@ -14,7 +14,7 @@ import javax.servlet.RequestDispatcher;
 
 import DataAccess.CartDao;
 
-@WebServlet("/shoppingcart")
+@WebServlet("/cart")
 public class CartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -51,7 +51,7 @@ public class CartServlet extends HttpServlet {
 		request.setAttribute("Cart", result);
 		
 		
-		RequestDispatcher rd=request.getRequestDispatcher("/shoppingcart.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("/cart.jsp");
 		rd.forward(request, response);
 		 
 	}
