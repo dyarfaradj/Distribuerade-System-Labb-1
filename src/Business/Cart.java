@@ -2,48 +2,87 @@ package Business;
 
 public class Cart {
 
-	private int cartId;
+	private int cart_id;
 	
-	private int uId;
+	private int uid;
 	
-	private int productId;
+	private int product_id;
 	
-	private String productName;
+	private String product_name;
 	
 	private int quantity;
 	
 	private int price;
 
 	public int getCartId() {
-		return cartId;
+		return cart_id;
+	}
+	
+	public Cart() {
+		super();
 	}
 
-	public void setCartId(int cartId) {
-		this.cartId = cartId;
+	public Cart(int product_id, String product_name, int quantity, int price) {
+		super();
+		this.product_id = product_id;
+		this.product_name = product_name;
+		this.quantity = quantity;
+		this.price = price;
+	}
+
+	public Cart(int cart_id, int uid, int product_id, String product_name, int quantity, int price) {
+		super();
+		this.cart_id = cart_id;
+		this.uid = uid;
+		this.product_id = product_id;
+		this.product_name = product_name;
+		this.quantity = quantity;
+		this.price = price;
+	}
+
+	public void setCartId(int cart_id) {
+		this.cart_id = cart_id;
 	}
 
 	public int getuId() {
-		return uId;
+		return uid;
 	}
 
-	public void setuId(int uId) {
-		this.uId = uId;
+	public void setuId(int uid) {
+		this.uid = uid;
 	}
 
-	public int getProductId() {
-		return productId;
+
+	public int getCart_id() {
+		return cart_id;
 	}
 
-	public void setProductId(int productId) {
-		this.productId = productId;
+	public void setCart_id(int cart_id) {
+		this.cart_id = cart_id;
 	}
 
-	public String getProductName() {
-		return productName;
+	public int getUid() {
+		return uid;
 	}
 
-	public void setProductName(String productName) {
-		this.productName = productName;
+	public void setUid(int uid) {
+		this.uid = uid;
+	}
+
+	public int getProduct_id() {
+		return product_id;
+	}
+
+	public void setProduct_id(int product_id) {
+		this.product_id = product_id;
+	}
+
+	public String getProduct_name() {
+		return product_name;
+	}
+
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
 	}
 
 	public int getQuantity() {
@@ -64,8 +103,8 @@ public class Cart {
 
 	@Override
 	public String toString() {
-		return "Cart [cartId=" + cartId + ", uId=" + uId + ", productId="
-				+ productId + ", productName=" + productName + ", quantity="
+		return "Cart [cartId=" + cart_id + ", uid=" + uid + ", productId="
+				+ product_id + ", productName=" + product_name + ", quantity="
 				+ quantity + ", price=" + price + "]";
 	}
 	

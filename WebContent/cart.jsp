@@ -33,16 +33,14 @@
 </tr>
 </thead>
 <tbody class="table-hover">
- <% for(Cart cart : result) { %>
-		
-		<tr>
-				<td><%= cart.getProductId() %></td>
-				<td><%= cart.getProductName() %></td>
-				<td><%= cart.getQuantity() %></td>
-				<td><%= cart.getPrice() %></td>
-		</tr>
-		
-		<% } %>
+ <c:forEach var="item" items="${listItem}">
+                <tr>
+                    <td><c:out value="${item.product_id}" /></td>
+                    <td><c:out value="${item.product_name}" /></td>
+                    <td><c:out value="${item.quantity}" /></td>
+                    <td><c:out value="${item.price}" /></td>
+                </tr>
+            </c:forEach>
 </tbody>
 </table>
 </body>

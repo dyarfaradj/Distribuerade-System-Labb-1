@@ -43,10 +43,10 @@
           <a href="./login.jsp">Login</a>
         </li>
         <li>
-          <a href="#!">Portfolio</a>
+          <a href="#!">KUND</a>
           <ul class="nav-dropdown">
             <li>
-              <a href="#!">Web Design</a>
+              <a href="showcart">Shopping Cart</a>
             </li>
             <li>
               <a href="#!">Web Development</a>

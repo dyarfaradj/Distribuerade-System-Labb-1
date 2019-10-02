@@ -13,6 +13,11 @@ import Business.Cart;
 
 public class CartDao {
 
+	private static final String SELECT_ALL_ITEMS = "select cart.product_id,product_name,quantity,cart.price from cart inner join product on cart.product_id = product.product_id where uid=?";
+	private String jdbcURL = "jdbc:mysql://remotemysql.com:3306/XdVvV2OhRA?useSSL=true";
+    private String jdbcUsername = "XdVvV2OhRA";
+    private String jdbcPassword = "qFzNXNgR0v";
+    
 	public static void insertIntoCart(int id,int pid,int quantity)
 	{
 		Connection con=null;
@@ -75,6 +80,46 @@ public class CartDao {
 		}
 		
 	}
+	protected Connection getConnection() {
+        Connection connection = null;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return connection;
+    }
+	public List < Cart > selectAllItems(int uid) {
+
+        List < Cart > cart = new ArrayList < > ();
+        // Step 1: Establishing a Connection
+        try (Connection connection = getConnection();
+
+            // Step 2:Create a statement using connection object
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_ITEMS);) {
+        	preparedStatement.setInt(1, uid);
+        	System.out.println(preparedStatement);
+            // Step 3: Execute the query or update query
+            ResultSet rs = preparedStatement.executeQuery();
+
+            // Step 4: Process the ResultSet object.
+            while (rs.next()) {
+                int product_id = rs.getInt("product_id");
+                String product_name = rs.getString("product_name");
+                int quantity = rs.getInt("quantity");
+                int price = rs.getInt("price");
+                cart.add(new Cart(product_id, product_name, quantity, price));
+            }
+        } catch (SQLException e) {
+        	e.printStackTrace();
+        }
+        return cart;
+    }
 	
 public static int getStock(int productId) {
 		
@@ -121,8 +166,8 @@ public static int getStock(int productId) {
 				{
 					Cart cart = new Cart();
 					
-					cart.setProductId(rs.getInt("product_id"));
-					cart.setProductName(rs.getString("product_name"));
+					cart.setProduct_id(rs.getInt("product_id"));
+					cart.setProduct_name(rs.getString("product_name"));
 					cart.setQuantity(rs.getInt("quantity"));
 					cart.setPrice(rs.getInt("price"));
 					
