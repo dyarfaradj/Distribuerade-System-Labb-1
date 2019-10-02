@@ -29,10 +29,10 @@
           <a href="#!">Sidor</a>
           <ul class="nav-dropdown">
             <li>
-              <a href="./list">Product List</a>
+              <a href="./list">ADMIN Product List</a>
             </li>
             <li>
-              <a href="./new">Add new product</a>
+              <a href="./new"> ADMIN Add new product</a>
             </li>
           </ul>
         </li>

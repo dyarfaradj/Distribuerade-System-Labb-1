@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
@@ -8,13 +8,6 @@
 <body>
 <jsp:include page="navbar.jsp" />
 <div style="color: white; text-align: center">
-        <h1>Items Management</h1>
-        <h2>
-            <a href="./new">Add New Item</a>
-            &nbsp;&nbsp;&nbsp;
-            <a href="./list">List All Items</a>
-             
-        </h2>
     </div>
 <div class="table-title">
 <h3>List of all items</h3>
