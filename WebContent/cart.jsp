@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import="Business.Cart" %>
-<%@ page import="DataAccess.CartDao" %>
-<%@ page import="java.util.*" %>   
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <html>
 <head>
     <title>Books Store Application</title>
@@ -15,14 +12,7 @@
 <div class="table-title">
 <h3>List of all items</h3>
 </div>
-<%
-	
-	
-	List<Cart> result = new ArrayList<Cart>();
-	
-	result = CartDao.getProducts(1);
-	
-%>
+
 <table class="table-fill">
 <thead>
 <tr>
