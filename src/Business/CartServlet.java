@@ -50,7 +50,7 @@ public class CartServlet extends HttpServlet {
 			throws SQLException, IOException, ServletException {
 		int user_id = (int) request.getSession().getAttribute("user_id");
 		int product_id = Integer.parseInt(request.getParameter("product_id"));
-		int quantity = 0;
+		int quantity = 1;
 		List<Cart> listItem = cartDAO.selectAllItems(user_id);
 		for (int i = 0; i < listItem.size(); i++) {
 			if (listItem.get(i).getProduct_id() == product_id) {
