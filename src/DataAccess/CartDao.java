@@ -26,6 +26,8 @@ public class CartDao {
 		
 
 		try {
+			 System.out.println(quantity);
+
 				con=DBConnection.getConnection();
 		
 				String updateStock="select product_id,price, stock from product where product_id= ?";
@@ -46,25 +48,56 @@ public class CartDao {
 				pstmt.clearParameters();
 				
 				pstmt.close();
+				 System.out.println(quantity);
+
 				
 				String sql="INSERT INTO cart(uid,product_id,quantity,price)VALUES(?,?,?,?)";
+				String sql1="UPDATE `cart` SET `quantity`=?,`price`=? WHERE `uid`= ? AND `product_id`= ?";
 				
-				int total_price = price * quantity;
 				
 				pstmt=con.prepareStatement(sql);
 				
-				pstmt.setInt(1, id);
-				pstmt.setInt(2, pid);
-				pstmt.setInt(3, quantity);
-				pstmt.setInt(4, total_price);
+				PreparedStatement preparedStatement2 = con.prepareStatement(SELECT_ALL_ITEMS);
+	        	preparedStatement2.setInt(1, id);
+
+				ResultSet rs1 = preparedStatement2.executeQuery();
 				
-				pstmt.execute();
-				
-				pstmt.clearParameters();
-				pstmt.close();
-				
-				
+				boolean check =false;
+				int product_id;
+				 while (rs1.next()) {
+		                product_id = rs1.getInt("product_id");
+		                if(product_id == pid) {
+		                	pid =  product_id;
+		                	quantity += 1;
+		                	check = true;
+		                }
+		            }
+				int total_price = price * quantity;
+				 
+				 if(check == false) {
+					pstmt.setInt(1, id);
+					pstmt.setInt(2, pid);
+					pstmt.setInt(3, quantity);
+					pstmt.setInt(4, total_price);
 					
+					pstmt.execute();
+					
+					pstmt.clearParameters();
+					pstmt.close();
+				 }else {
+					 
+					 PreparedStatement preparedStatement1 = con.prepareStatement(sql1);
+					 System.out.println(preparedStatement1);
+
+					 preparedStatement1.setInt(1, quantity);
+					 preparedStatement1.setInt(2, total_price);
+					 preparedStatement1.setInt(3, id);
+					 preparedStatement1.setInt(4, pid);
+					 preparedStatement1.executeUpdate();
+
+					 System.out.println(preparedStatement1);
+
+				 }	
 				
 		} catch (SQLException e) {
 
