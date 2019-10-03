@@ -28,16 +28,13 @@
           <a href="./">Home</a>
         </li>
         <li>
-          <a href="#!">About</a>
-        </li>
-        <li>
-          <a href="#!">Sidor</a>
+          <a href="#!">ADMIN</a>
           <ul class="nav-dropdown">
             <li>
-              <a href="./list">ADMIN Product List</a>
+              <a href="./list">Product Management</a>
             </li>
             <li>
-              <a href="./new"> ADMIN Add new product</a>
+              <a href="./new">Add new product</a>
             </li>
           </ul>
         </li>
@@ -69,9 +66,6 @@
               <a href="#!">Graphic Design</a>
             </li>
           </ul>
-        </li>
-        <li>
-          <a href="#!">Contact</a>
         </li>
       </ul>
     </nav>
