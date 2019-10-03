@@ -9,6 +9,7 @@
 </head>
 <body>
 <jsp:include page="navbar.jsp"/>
+<jsp:include page="sidebar.jsp" />
 <div class="container">  
   <form id="contact" action="<%= request.getContextPath() %>/register" method="post">
     <h3>Registration</h3>

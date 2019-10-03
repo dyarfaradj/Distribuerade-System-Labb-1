@@ -10,6 +10,7 @@
 </head>
 <body>
 <jsp:include page="navbar.jsp"/>
+<jsp:include page="sidebar.jsp" />
 <div class="logo"></div>
 <div class="login-block">
     <h1>Login</h1>

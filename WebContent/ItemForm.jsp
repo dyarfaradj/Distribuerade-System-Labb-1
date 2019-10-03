@@ -8,6 +8,7 @@
 </head>
 <body>
 <jsp:include page="navbar.jsp" />
+<jsp:include page="sidebar.jsp" />
 <div style="color: white; text-align: center">
     </div>
     <div align="center">
