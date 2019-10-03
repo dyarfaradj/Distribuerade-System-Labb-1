@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import DataAccess.ItemDAO;
 import Business.Item;
 
-@WebServlet(name="ItemServlet", urlPatterns={"/new", "/insert", "/delete", "/edit", "/update", "/list"})
+@WebServlet(name="ItemServlet", urlPatterns={"/new", "/insert", "/delete", "/edit", "/update", "/list", "/ItemList_Kund"})
 public class ItemServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private ItemDAO itemDAO;
@@ -52,6 +52,9 @@ public class ItemServlet extends HttpServlet {
                 case "/list":
                 	listItem(request, response);
                     break;
+                case "/ItemList_Kund":
+                	listItem_(request, response);
+                    break;
                 default:
                     break;
             }
@@ -71,7 +74,17 @@ public class ItemServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("ItemList.jsp");
         dispatcher.forward(request, response);
     }
-
+    private void listItem_(HttpServletRequest request, HttpServletResponse response)
+    	    throws SQLException, IOException, ServletException {
+    	        List < Item > listItem1 = itemDAO.selectAllItems();
+    	        request.setAttribute("listItem1", listItem1);
+    	       // for(int i=0; i<listItem1.size(); i++)
+    	        //{
+    	        //System.out.println(listItem_1.get(i).getProduct_id());
+    	        //}
+    	        RequestDispatcher dispatcher = request.getRequestDispatcher("ItemList_Kund.jsp");
+    	        dispatcher.forward(request, response);
+    	    }
     private void showNewForm(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("ItemForm.jsp");

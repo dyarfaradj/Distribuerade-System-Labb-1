@@ -52,15 +52,15 @@ public class CartServlet extends HttpServlet {
 		    throws SQLException, IOException, ServletException {
 		int user_id= (int) request.getSession().getAttribute("user_id");
 		
-		//int productId= Integer.parseInt(request.getParameter("productId"));
+int product_id= Integer.parseInt(request.getParameter("product_id"));
     	
-		int productId= 1;
+		//int productId= 1;
 		int quantity = 1;
 		
-		int stockId = CartDao.getStock(productId);
+		int stockId = CartDao.getStock(product_id);
 		
 		if(stockId >=quantity) {
-			CartDao.insertIntoCart(user_id,productId,quantity);	
+			CartDao.insertIntoCart(user_id,product_id,quantity);	
 		}
 		
 		showCart(request, response);
