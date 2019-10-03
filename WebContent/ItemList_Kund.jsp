@@ -19,7 +19,7 @@
 <th class="text-left">ID</th>
 <th class="text-left">Title</th>
 <th class="text-left">Description</th>
-<th class="text-left">Quantity</th>
+<th class="text-left">Stock</th>
 <th class="text-left">Price</th>
 <th class="text-left">Actions</th>
 </tr>
