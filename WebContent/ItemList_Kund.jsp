@@ -38,6 +38,10 @@
                     </td>
                 </tr>
             </c:forEach>
+           
+            <a href="./placeorder<c:out/>">Order</a>
+                       
+               
 </tbody>
 </table>
 </body>
