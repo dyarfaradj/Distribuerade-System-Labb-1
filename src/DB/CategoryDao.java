@@ -37,6 +37,13 @@ public class CategoryDao {
 			}
 		} catch (SQLException e) {
 			DBConnection.printSQLException(e);
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+			}
 		}
 		return category;
 	}
@@ -55,6 +62,13 @@ public class CategoryDao {
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			DBConnection.printSQLException(e);
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+			}
 		}
 	}
 
@@ -77,6 +91,13 @@ public class CategoryDao {
 			}
 		} catch (SQLException e) {
 			DBConnection.printSQLException(e);
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+			}
 		}
 		return categories;
 	}
@@ -93,6 +114,13 @@ public class CategoryDao {
 			rowDeleted = preparedStatement.executeUpdate() > 0;
 		} catch (SQLException e) {
 			DBConnection.printSQLException(e);
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+			}
 		}
 		return rowDeleted;
 	}
@@ -110,6 +138,13 @@ public class CategoryDao {
 			rowUpdated = preparedStatement.executeUpdate() > 0;
 		} catch (SQLException e) {
 			DBConnection.printSQLException(e);
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+			}
 		}
 		return rowUpdated;
 	}

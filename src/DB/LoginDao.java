@@ -31,6 +31,13 @@ public class LoginDao {
 
 		} catch (SQLException e) {
 			DBConnection.printSQLException(e);
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+			}
 		}
 		return user;
 	}
@@ -54,6 +61,13 @@ public class LoginDao {
 
 		} catch (SQLException e) {
 			DBConnection.printSQLException(e);
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+			}
 		}
 		return userID;
 	}

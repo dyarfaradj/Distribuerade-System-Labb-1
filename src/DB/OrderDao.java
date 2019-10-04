@@ -86,6 +86,13 @@ public class OrderDao {
 
 		} catch (SQLException e) {
 			DBConnection.printSQLException(e);
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+			}
 		}
 
 	}

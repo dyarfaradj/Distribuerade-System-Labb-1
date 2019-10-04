@@ -125,6 +125,13 @@ public class CartDao {
 			}
 		} catch (SQLException e) {
 			DBConnection.printSQLException(e);
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+			}
 		}
 		return cart;
 	}
@@ -213,6 +220,13 @@ public class CartDao {
 
 		} catch (SQLException e) {
 			DBConnection.printSQLException(e);
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+			}
 		}
 
 		return totalprice;

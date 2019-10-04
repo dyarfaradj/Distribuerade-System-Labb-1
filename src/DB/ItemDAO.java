@@ -36,6 +36,13 @@ public class ItemDAO {
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			DBConnection.printSQLException(e);
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+			}
 		}
 	}
 
@@ -61,6 +68,13 @@ public class ItemDAO {
 			}
 		} catch (SQLException e) {
 			DBConnection.printSQLException(e);
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+			}
 		}
 		System.out.println(item);
 		return item;
@@ -89,6 +103,13 @@ public class ItemDAO {
 			}
 		} catch (SQLException e) {
 			DBConnection.printSQLException(e);
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+			}
 		}
 		return items;
 	}
@@ -105,6 +126,13 @@ public class ItemDAO {
 			rowDeleted = preparedStatement.executeUpdate() > 0;
 		} catch (SQLException e) {
 			DBConnection.printSQLException(e);
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+			}
 		}
 		return rowDeleted;
 	}
@@ -125,6 +153,13 @@ public class ItemDAO {
 			rowUpdated = preparedStatement.executeUpdate() > 0;
 		} catch (SQLException e) {
 			DBConnection.printSQLException(e);
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+			}
 		}
 		return rowUpdated;
 	}
