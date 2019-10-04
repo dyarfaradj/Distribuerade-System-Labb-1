@@ -72,8 +72,8 @@ public class OrderServlet extends HttpServlet {
 
 	private void viewOrder(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-		int order_id = Integer.parseInt(request.getParameter("bill_no"));
-		List<Billing> viewOrder = orderDAO.selectOrderByID(order_id);
+		int bill_no = Integer.parseInt(request.getParameter("bill_no"));
+		List<Billing> viewOrder = orderDAO.selectOrderByID(bill_no);
 		request.setAttribute("viewOrder", viewOrder);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/ViewOrder.jsp");
 		dispatcher.forward(request, response);
@@ -81,8 +81,7 @@ public class OrderServlet extends HttpServlet {
 
 	private void sendOrder(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-		int bill_no = (int) request.getSession().getAttribute("bill_no");
-		System.out.println("bill_no");
+		int bill_no = Integer.parseInt(request.getParameter("bill_no"));
 		orderDAO.packed(bill_no);
 		response.sendRedirect("orderlist");
 
