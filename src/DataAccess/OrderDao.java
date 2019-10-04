@@ -19,7 +19,7 @@ public class OrderDao {
 		int total_price = 0;
 
 		try {
-
+			
 			// To get list of all cart
 			CartDao cartDAO = new CartDao();
 
@@ -32,6 +32,7 @@ public class OrderDao {
 			total_price = 2;
 
 			// Insert into Billing table
+			conn.setAutoCommit(false);
 
 			String insertinbilling = "insert into billing (uid,total_amt) values(?,?)";
 
@@ -83,6 +84,8 @@ public class OrderDao {
 			pstmt.execute();
 			pstmt.clearParameters();
 			pstmt.close();
+			conn.commit();
+			conn.setAutoCommit(true);
 
 		} catch (SQLException e) {
 
