@@ -36,6 +36,7 @@ public class CategoryServlet extends HttpServlet {
 			switch (action) {
 			case "/showcategories":
 				showCategories(request, response);
+				break;
 			case "/addcategory":
 				addCategory(request, response);
 				break;
@@ -44,8 +45,10 @@ public class CategoryServlet extends HttpServlet {
 				break;
 			case "/updatecategory":
 				updateCategory(request, response);
+				break;
 			case "/editcategory":
 				showEditForm(request, response);
+				break;
 			default:
 				break;
 			}
