@@ -29,11 +29,11 @@
     <fieldset>
       <input placeholder="Your address" name="address" type="text" tabindex="5" required autofocus>
     </fieldset>
-    <fieldset>
-      <input placeholder="Your Email Address" name="contact" type="email" tabindex="6" required>
+     <fieldset>
+      <input placeholder="Your Email Address" name="email" type="email" tabindex="6" required>
     </fieldset>
     <fieldset>
-      <input placeholder="Your Phone Number (optional)" type="tel" tabindex="7" required>
+      <input placeholder="Your Phone Number" name="phone" type="tel" tabindex="7" required>
     </fieldset>
     <fieldset>
       <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
