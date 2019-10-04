@@ -45,7 +45,7 @@
                 </td>
             </tr>
             <tr>
-                <th class="text-left">Description: </th>
+                <th class="text-left">Category: </th>
                 <td>
                     <input type="text" name="cat_id" size="45"
                             value="<c:out value='${item.cat_id}' />"
