@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import BO.Cart;
+import BO.Item;
+import BO.Billing;
 
 public class OrderDB {
 
@@ -95,6 +97,79 @@ public class OrderDB {
 			}
 		}
 
+	}
+	public List<Billing> selectAllOrder() {
+		Connection connection = null;
+		PreparedStatement preparedStatement;
+		List<Billing> billings = new ArrayList<>();
+
+		try {
+			connection = DBConnection.getConnection();
+			preparedStatement = connection.prepareStatement("select * from billing");
+
+			System.out.println(preparedStatement);
+			// Step 3: Execute the query or update query
+			ResultSet rs = preparedStatement.executeQuery();
+
+			// Step 4: Process the ResultSet object.
+			while (rs.next()) {
+				int bill_no = rs.getInt("bill_no");
+				int total_amt = rs.getInt("total_amt");
+				int uid = rs.getInt("uid");
+				boolean packed = rs.getBoolean("packed");
+				billings.add(new Billing(bill_no, uid, total_amt, packed));
+			}
+		} catch (SQLException e) {
+			DBConnection.printSQLException(e);
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+			}
+		}
+		return billings;
+	}
+	
+	
+	public List<Billing> selectOrderByID(int order_id) {
+		Connection connection = null;
+		List<Billing> billing = new ArrayList<>();
+
+		try {
+
+			connection = DBConnection.getConnection();
+			PreparedStatement preparedStatement = connection.prepareStatement("SELECT product.product_name, order_inv.bill_no, order_inv.quantity, order_inv.product_id,  product.stock "
+					+ "FROM order_inv "
+					+ "INNER JOIN product "
+					+ "ON order_inv.product_id = product.product_id "
+					+ "WHERE order_inv.bill_no = ?");
+			preparedStatement.setInt(1, order_id);
+			System.out.println(preparedStatement);
+			// Step 3: Execute the query or update query
+			ResultSet rs = preparedStatement.executeQuery();
+
+			// Step 4: Process the ResultSet object.
+			while (rs.next()) {
+				int product_id = rs.getInt("product_id");
+				String product_name = rs.getString("product_name");
+				int quantity = rs.getInt("quantity");
+				int bill_no = rs.getInt("bill_no");
+				int stock = rs.getInt("stock");
+				billing.add(new Billing(bill_no, product_id, quantity, product_name, stock));
+			}
+		} catch (SQLException e) {
+			DBConnection.printSQLException(e);
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+			}
+		}
+		return billing;
 	}
 
 }
