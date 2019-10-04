@@ -4,6 +4,7 @@
 <html>
 <head>
     <title>Books Store Application</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
 </head>
 <body>
 <jsp:include page="navbar.jsp" />

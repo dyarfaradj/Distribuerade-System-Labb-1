@@ -404,10 +404,11 @@ td.text-right {
       }
       div.p-name {
         font-weight: bold;
-        font-size: 1.1em;
+        font-size: 1.2em;
       }
       div.p-price {
         color: #f44242;
+        font-size: 1.1em;
       }
       div.p-desc {
         color: #888;

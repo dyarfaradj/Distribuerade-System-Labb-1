@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/navbar.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/navbar.js"></script>
+<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
 </head>
 <body>
 <% 	HttpSession sess=request.getSession(true);

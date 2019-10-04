@@ -6,6 +6,7 @@
 <meta charset="ISO-8859-1">
 <title>User registration</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css" />
+<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
 </head>
 <body>
 <jsp:include page="navbar.jsp"/>
