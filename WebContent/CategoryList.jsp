@@ -19,17 +19,18 @@
 <tr>
 <th class="text-left">ID</th>
 <th class="text-left">Name</th>
+<th class="text-left">Actions</th>
 </tr>
 </thead>
 <tbody class="table-hover">
- <c:forEach var="cat" items="${listCat}">
+ <c:forEach var="category" items="${listCategories}">
                 <tr>
-                    <td><c:out value="${cat.cat_id}" /></td>
-                    <td><c:out value="${cat.cat_name}" /></td>
+                    <td><c:out value="${category.cat_id}" /></td>
+                    <td><c:out value="${category.cat_name}" /></td>
                     <td>
-                        <a href="./edit<c:out value='${cat.cat_id}' />">Edit</a>
+                        <a href="./editcategory?cat_id=<c:out value='${category.cat_id}' />">Edit</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="./delete<c:out value='${cat.cat_id}' />">Delete</a>                     
+                        <a href="./removecategory?cat_id=<c:out value='${category.cat_id}' />">Delete</a>                        
                     </td>
                 </tr>
             </c:forEach>

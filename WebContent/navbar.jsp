@@ -44,6 +44,12 @@
 		            <li>
 		              <a href="./new">Add new product</a>
 		            </li>
+		            <li>
+		            	<a href ="./showcategories">Category management</a>
+		            </li>
+		            <li>
+		              <a href="./CategoryForm.jsp">Add new category</a>
+		            </li>
 		          </ul>
 		        </li>
 		    </c:when>   
