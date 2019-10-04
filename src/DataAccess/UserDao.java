@@ -1,7 +1,6 @@
 package DataAccess;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -9,49 +8,33 @@ import Business.User;;
 
 public class UserDao {
 
-    public int registerEmployee(User user) throws ClassNotFoundException {
-        String INSERT_USERS_SQL = "INSERT INTO user_reg" +
-            "  (name, user_name, passwd, address, mobile_no) VALUES " +
-            " (?, ?, ?, ?,?);";
+	private static final String INSERT_USERS_SQL = "INSERT INTO user_reg (name, user_name, passwd, address, mobile_no) VALUES (?, ?, ?, ?,?)";
 
-        int result = 0;
+	public int registerEmployee(User user) throws ClassNotFoundException {
+		Connection connection = null;
+		PreparedStatement preparedStatement;
 
-        Class.forName("com.mysql.cj.jdbc.Driver");
+		int result = 0;
 
-        try (Connection connection = DriverManager
-        	.getConnection("jdbc:mysql://remotemysql.com:3306/XdVvV2OhRA?useSSL=true", "XdVvV2OhRA", "qFzNXNgR0v");
+		Class.forName("com.mysql.cj.jdbc.Driver");
 
-            // Step 2:Create a statement using connection object
-            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL)) {
-            preparedStatement.setString(1, user.getFirstName());
-            preparedStatement.setString(2, user.getUsername());
-            preparedStatement.setString(3, user.getPassword());
-            preparedStatement.setString(4, user.getAddress());
-            preparedStatement.setString(5, user.getContact());
+		try {
+			connection = DBConnection.getConnection();
+			preparedStatement = connection.prepareStatement(INSERT_USERS_SQL);
+			preparedStatement.setString(1, user.getFirstName());
+			preparedStatement.setString(2, user.getUsername());
+			preparedStatement.setString(3, user.getPassword());
+			preparedStatement.setString(4, user.getAddress());
+			preparedStatement.setString(5, user.getContact());
 
-            System.out.println(preparedStatement);
-            // Step 3: Execute the query or update query
-            result = preparedStatement.executeUpdate();
+			System.out.println(preparedStatement);
+			// Step 3: Execute the query or update query
+			result = preparedStatement.executeUpdate();
 
-        } catch (SQLException e) {
-            printSQLException(e);
-        }
-        return result;
-    }
+		} catch (SQLException e) {
+			DBConnection.printSQLException(e);
+		}
+		return result;
+	}
 
-    private void printSQLException(SQLException ex) {
-        for (Throwable e: ex) {
-            if (e instanceof SQLException) {
-                e.printStackTrace(System.err);
-                System.err.println("SQLState: " + ((SQLException) e).getSQLState());
-                System.err.println("Error Code: " + ((SQLException) e).getErrorCode());
-                System.err.println("Message: " + e.getMessage());
-                Throwable t = ex.getCause();
-                while (t != null) {
-                    System.out.println("Cause: " + t);
-                    t = t.getCause();
-                }
-            }
-        }
-    }
 }

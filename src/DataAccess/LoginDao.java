@@ -1,7 +1,6 @@
 package DataAccess;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,70 +9,49 @@ import Business.LoginBean;
 
 public class LoginDao {
 
-    public boolean validate(LoginBean loginBean) throws ClassNotFoundException {
-        boolean status = false;
+	public boolean validate(LoginBean loginBean) throws ClassNotFoundException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		boolean status = false;
 
-        Class.forName("com.mysql.cj.jdbc.Driver");
+		try {
+			connection = DBConnection.getConnection();
+			preparedStatement = connection
+					.prepareStatement("select * from user_reg where user_name = ? and passwd = ? ");
+			preparedStatement.setString(1, loginBean.getUsername());
+			preparedStatement.setString(2, loginBean.getPassword());
 
-        try (Connection connection = DriverManager
-            .getConnection("jdbc:mysql://remotemysql.com:3306/XdVvV2OhRA?useSSL=true", "XdVvV2OhRA", "qFzNXNgR0v");
+			System.out.println(preparedStatement);
+			ResultSet rs = preparedStatement.executeQuery();
+			status = rs.next();
 
-            // Step 2:Create a statement using connection object
-            PreparedStatement preparedStatement = connection
-            .prepareStatement("select * from user_reg where user_name = ? and passwd = ? ")) {
-            preparedStatement.setString(1, loginBean.getUsername());
-            preparedStatement.setString(2, loginBean.getPassword());
+		} catch (SQLException e) {
+			DBConnection.printSQLException(e);
+		}
+		return status;
+	}
 
-            System.out.println(preparedStatement);
-            ResultSet rs = preparedStatement.executeQuery();
-            status = rs.next();
+	public int getUserID(LoginBean loginBean) throws ClassNotFoundException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		int userID = 0;
 
-        } catch (SQLException e) {
-            // process sql exception
-            printSQLException(e);
-        }
-        return status;
-    }
-    
-    public int getUserID(LoginBean loginBean) throws ClassNotFoundException {
-        int userID = 0;
+		try {
+			connection = DBConnection.getConnection();
+			preparedStatement = connection
+					.prepareStatement("select * from user_reg where user_name = ? and passwd = ? ");
+			preparedStatement.setString(1, loginBean.getUsername());
+			preparedStatement.setString(2, loginBean.getPassword());
 
-        Class.forName("com.mysql.cj.jdbc.Driver");
+			System.out.println(preparedStatement);
+			ResultSet rs = preparedStatement.executeQuery();
+			rs.next();
+			userID = rs.getInt("uid");
 
-        try (Connection connection = DriverManager
-            .getConnection("jdbc:mysql://remotemysql.com:3306/XdVvV2OhRA?useSSL=true", "XdVvV2OhRA", "qFzNXNgR0v");
+		} catch (SQLException e) {
+			DBConnection.printSQLException(e);
+		}
+		return userID;
+	}
 
-            // Step 2:Create a statement using connection object
-            PreparedStatement preparedStatement = connection
-            .prepareStatement("select * from user_reg where user_name = ? and passwd = ? ")) {
-            preparedStatement.setString(1, loginBean.getUsername());
-            preparedStatement.setString(2, loginBean.getPassword());
-
-            System.out.println(preparedStatement);
-            ResultSet rs = preparedStatement.executeQuery();
-            rs.next();
-            userID = rs.getInt("uid");
-
-        } catch (SQLException e) {
-            // process sql exception
-            printSQLException(e);
-        }
-        return userID;
-    }
-
-    private void printSQLException(SQLException ex) {
-        for (Throwable e: ex) {
-            if (e instanceof SQLException) {
-                e.printStackTrace(System.err);
-                System.err.println("SQLState: " + ((SQLException) e).getSQLState());
-                System.err.println("Error Code: " + ((SQLException) e).getErrorCode());
-                System.err.println("Message: " + e.getMessage());
-                Throwable t = ex.getCause();
-                while (t != null) {
-                    System.out.println("Cause: " + t);
-                    t = t.getCause();
-                }
-            }
-        }
-    }
 }

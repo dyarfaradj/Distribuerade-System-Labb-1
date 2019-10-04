@@ -12,84 +12,80 @@ import Business.Cart;
 public class OrderDao {
 
 	public void placeorder(int uid) {
-		Connection conn = null;
-		PreparedStatement pstmt;
+		Connection connection = null;
+		PreparedStatement preparedStatement;
 		ResultSet rs;
-		conn = DBConnection.getConnection();
 		int total_price = 0;
 
 		try {
-			
+			connection = DBConnection.getConnection();
+
 			// To get list of all cart
 			CartDao cartDAO = new CartDao();
-
 			List<Cart> result = new ArrayList<Cart>();
-
 			result = cartDAO.selectAllItems(uid);
 
 			// Total bill amount
-
 			total_price = 2;
 
 			// Insert into Billing table
-			conn.setAutoCommit(false);
+			connection.setAutoCommit(false);
 
 			String insertinbilling = "insert into billing (uid,total_amt) values(?,?)";
 
-			pstmt = conn.prepareStatement(insertinbilling);
+			preparedStatement = connection.prepareStatement(insertinbilling);
 
-			pstmt.setInt(1, uid);
-			pstmt.setInt(2, total_price);
+			preparedStatement.setInt(1, uid);
+			preparedStatement.setInt(2, total_price);
 
-			pstmt.execute();
-			pstmt.clearParameters();
-			pstmt.close();
+			preparedStatement.execute();
+			preparedStatement.clearParameters();
+			preparedStatement.close();
 
 			// Get the latest bill
 
 			String getBillNo = "select MAX(bill_no) from billing ";
 
-			pstmt = conn.prepareStatement(getBillNo);
+			preparedStatement = connection.prepareStatement(getBillNo);
 
-			rs = pstmt.executeQuery();
+			rs = preparedStatement.executeQuery();
 
 			rs.next();
 			int bill_no = rs.getInt("MAX(bill_no)");
 
-			pstmt.clearParameters();
-			pstmt.close();
+			preparedStatement.clearParameters();
+			preparedStatement.close();
 
 			// Insert into order_inv table
 
 			String query = "insert into order_inv(bill_no,product_id,quantity,total_prod_price) values(?,?,?,?)";
 
-			pstmt = conn.prepareStatement(query);
+			preparedStatement = connection.prepareStatement(query);
 
 			for (Cart list : result) {
-				pstmt.setInt(1, bill_no);
-				pstmt.setInt(2, list.getProduct_id());
-				pstmt.setInt(3, list.getQuantity());
-				pstmt.setInt(4, list.getPrice());
-				pstmt.execute();
-				pstmt.clearParameters();
+				preparedStatement.setInt(1, bill_no);
+				preparedStatement.setInt(2, list.getProduct_id());
+				preparedStatement.setInt(3, list.getQuantity());
+				preparedStatement.setInt(4, list.getPrice());
+				preparedStatement.execute();
+				preparedStatement.clearParameters();
 			}
 
-			pstmt.close();
+			preparedStatement.close();
 
 			// Delete entry from cart table
 
 			String deletequery = "DELETE from cart where uid=? ";
-			pstmt = conn.prepareStatement(deletequery);
-			pstmt.setInt(1, uid);
-			pstmt.execute();
-			pstmt.clearParameters();
-			pstmt.close();
-			conn.commit();
-			conn.setAutoCommit(true);
+			preparedStatement = connection.prepareStatement(deletequery);
+			preparedStatement.setInt(1, uid);
+			preparedStatement.execute();
+			preparedStatement.clearParameters();
+			preparedStatement.close();
+			connection.commit();
+			connection.setAutoCommit(true);
 
 		} catch (SQLException e) {
-
-			e.printStackTrace();
+			DBConnection.printSQLException(e);
 		}
 
 	}
