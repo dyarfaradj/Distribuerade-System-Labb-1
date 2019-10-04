@@ -16,8 +16,6 @@ public class UserDao {
 
 		int result = 0;
 
-		Class.forName("com.mysql.cj.jdbc.Driver");
-
 		try {
 			connection = DBConnection.getConnection();
 			preparedStatement = connection.prepareStatement(INSERT_USERS_SQL);
