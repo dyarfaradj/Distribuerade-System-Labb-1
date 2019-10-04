@@ -11,12 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DB.CartDB;
 import DB.OrderDB;
-import BO.Billing;
 
-
-@WebServlet(name = "OrderServlet", urlPatterns = { "/placeorder", "/orderlist", "/vieworder", "/sendorder"})
+@WebServlet(name = "OrderServlet", urlPatterns = { "/placeorder", "/orderlist", "/vieworder", "/sendorder" })
 public class OrderServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -54,6 +51,7 @@ public class OrderServlet extends HttpServlet {
 			throw new ServletException(ex);
 		}
 	}
+
 	private void placerOrder(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 		int user_id = (int) request.getSession().getAttribute("user_id");
@@ -62,7 +60,7 @@ public class OrderServlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/cart.jsp");
 		dispatcher.forward(request, response);
 	}
-	
+
 	private void orderList(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
@@ -71,26 +69,24 @@ public class OrderServlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/OrderList.jsp");
 		dispatcher.forward(request, response);
 	}
+
 	private void viewOrder(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-		int order_id = (int) request.getSession().getAttribute("bill_no");;
-
-		List<Billing> viewOrder  = orderDAO.selectOrderByID(order_id);
+		int order_id = Integer.parseInt(request.getParameter("bill_no"));
+		List<Billing> viewOrder = orderDAO.selectOrderByID(order_id);
 		request.setAttribute("viewOrder", viewOrder);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/ViewOrder.jsp");
 		dispatcher.forward(request, response);
 	}
-	
+
 	private void sendOrder(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 		int bill_no = (int) request.getSession().getAttribute("bill_no");
 		System.out.println("bill_no");
 		orderDAO.packed(bill_no);
-        response.sendRedirect("orderlist");
-		
+		response.sendRedirect("orderlist");
+
 	}
-
-
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
