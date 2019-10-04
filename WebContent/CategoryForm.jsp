@@ -37,7 +37,7 @@
                     <input type="hidden" name="cat_id" value="<c:out value='${category.cat_id}' />" />
                 </c:if>           
             <tr>
-                <th class="text-left">Title: </th>
+                <th class="text-left">Name: </th>
                 <td>
                     <input  type="text" name="cat_name" size="45"
                             value="<c:out value='${category.cat_name}' />"

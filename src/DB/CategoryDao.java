@@ -11,7 +11,7 @@ import Business.Category;
 
 public class CategoryDao {
 	private static final String INSERT_CATEGORY_SQL = "INSERT INTO category (cat_name) VALUES (?)";
-	private static final String SELECT_CATEGORY_BY_ID = "select cat_name from category where cat_id =?";
+	private static final String SELECT_CATEGORY_BY_ID = "select * from category where cat_id =?";
 	private static final String DELETE_CATEGORY_SQL = "DELETE FROM category where cat_id = ?";
 	private static final String SELECT_ALL_CATEGORIES = "select * from category";
 	private static final String UPDATE_CATEGORY_SQL = "UPDATE category SET cat_name = ? WHERE cat_id = ?";
@@ -32,8 +32,9 @@ public class CategoryDao {
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
+				int cat_id2 = rs.getInt("cat_id");
 				String cat_name = rs.getString("cat_name");
-				category = new Category(cat_name);
+				category = new Category(cat_id2, cat_name);
 			}
 		} catch (SQLException e) {
 			DBConnection.printSQLException(e);
@@ -134,6 +135,7 @@ public class CategoryDao {
 			preparedStatement = connection.prepareStatement(UPDATE_CATEGORY_SQL);
 			preparedStatement.setString(1, category.getCat_name());
 			preparedStatement.setInt(2, category.getCat_id());
+			System.out.println(preparedStatement);
 
 			rowUpdated = preparedStatement.executeUpdate() > 0;
 		} catch (SQLException e) {
