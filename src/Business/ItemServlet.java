@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DataAccess.ItemDAO;
 import Business.Item;
+import DB.ItemDAO;
 
 @WebServlet(name="ItemServlet", urlPatterns={"/new", "/insert", "/delete", "/edit", "/update", "/list", "/ItemList_Kund"})
 public class ItemServlet extends HttpServlet {

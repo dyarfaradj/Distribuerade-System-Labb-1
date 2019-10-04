@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DataAccess.CartDao;
+import DB.CartDao;
 
 @WebServlet(name = "CartServlet", urlPatterns = { "/showcart", "/addtocart" })
 public class CartServlet extends HttpServlet {
