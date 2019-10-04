@@ -5,6 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>DYKA ONLINE SHOPPING!</title>
+<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
 </head>
 <body>
 	<jsp:include page="navbar.jsp" />
