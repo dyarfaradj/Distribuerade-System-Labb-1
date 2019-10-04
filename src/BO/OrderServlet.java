@@ -1,4 +1,4 @@
-package Business;
+package BO;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DB.OrderDao;
+import DB.OrderDB;
 
 @WebServlet(name = "OrderServlet", urlPatterns = { "/placeorder" })
 public class OrderServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private OrderDao orderDAO;
+	private OrderDB orderDAO;
 
 	public void init() {
-		orderDAO = new OrderDao();
+		orderDAO = new OrderDB();
 	}
 
 	public OrderServlet() {

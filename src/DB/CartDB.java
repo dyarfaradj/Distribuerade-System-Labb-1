@@ -7,9 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import Business.Cart;
+import BO.Cart;
 
-public class CartDao {
+public class CartDB {
 
 	private static final String SELECT_ALL_ITEMS = "select cart.product_id,product_name,quantity,cart.price from cart inner join product on cart.product_id = product.product_id where uid=?";
 	private static final String UPDATE_STOCK = "select product_id,price, stock from product where product_id= ?";

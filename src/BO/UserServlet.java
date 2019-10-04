@@ -1,4 +1,4 @@
-package Business;
+package BO;
 
 import java.io.IOException;
 
@@ -8,15 +8,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DB.UserDao;
+import DB.UserDB;
 
 @WebServlet("/register")
 public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private UserDao userDao;
+	private UserDB userDao;
 
 	public void init() {
-		userDao = new UserDao();
+		userDao = new UserDB();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

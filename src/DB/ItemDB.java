@@ -7,16 +7,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import Business.Item;
+import BO.Item;
 
-public class ItemDAO {
+public class ItemDB {
 	private static final String INSERT_ITEM_SQL = "INSERT INTO product (cat_id, product_name, price, stock) VALUES (?, ?, ?, ?)";
 	private static final String SELECT_ITEM_BY_ID = "select product_id,product_name,cat_id,stock,price from product where product_id =?";
 	private static final String SELECT_ALL_ITEMS = "select * from product";
 	private static final String DELETE_ITEMS_SQL = "DELETE FROM product where product_id = ?";
 	private static final String UPDATE_ITEM_SQL = "UPDATE product SET product_name = ?, cat_id = ?, stock = ?, price = ? WHERE product_id = ?";
 
-	public ItemDAO() {
+	public ItemDB() {
 	}
 
 	public void insertItem(Item item) throws SQLException {

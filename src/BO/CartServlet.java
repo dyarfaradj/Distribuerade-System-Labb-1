@@ -1,4 +1,4 @@
-package Business;
+package BO;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -11,16 +11,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DB.CartDao;
+import DB.CartDB;
 
 @WebServlet(name = "CartServlet", urlPatterns = { "/showcart", "/addtocart" })
 public class CartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private CartDao cartDAO;
+	private CartDB cartDAO;
 
 	public void init() {
-		cartDAO = new CartDao();
+		cartDAO = new CartDB();
 	}
 
 	public CartServlet() {
@@ -57,10 +57,10 @@ public class CartServlet extends HttpServlet {
 				quantity = listItem.get(i).getQuantity();
 			}
 		}
-		int stockId = CartDao.getStock(product_id);
+		int stockId = CartDB.getStock(product_id);
 
 		if (stockId >= quantity) {
-			CartDao.insertIntoCart(user_id, product_id, quantity);
+			CartDB.insertIntoCart(user_id, product_id, quantity);
 		}
 
 		showCart(request, response);

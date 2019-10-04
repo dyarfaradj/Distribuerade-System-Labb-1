@@ -7,16 +7,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import Business.Category;
+import BO.Category;
 
-public class CategoryDao {
+public class CategoryDB {
 	private static final String INSERT_CATEGORY_SQL = "INSERT INTO category (cat_name) VALUES (?)";
 	private static final String SELECT_CATEGORY_BY_ID = "select * from category where cat_id =?";
 	private static final String DELETE_CATEGORY_SQL = "DELETE FROM category where cat_id = ?";
 	private static final String SELECT_ALL_CATEGORIES = "select * from category";
 	private static final String UPDATE_CATEGORY_SQL = "UPDATE category SET cat_name = ? WHERE cat_id = ?";
 
-	public CategoryDao() {
+	public CategoryDB() {
 	}
 
 	public Category selectCategory(int cat_id) {

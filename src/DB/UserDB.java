@@ -4,9 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import Business.User;;
+import BO.User;;
 
-public class UserDao {
+public class UserDB {
 
 	private static final String INSERT_USERS_SQL = "INSERT INTO user_reg (name, user_name, passwd, address, mobile_no, email, role) VALUES (?, ?, ?, ?, ?, ?, ?)";
 

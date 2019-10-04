@@ -1,4 +1,4 @@
-package Business;
+package BO;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -11,16 +11,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Business.Item;
-import DB.ItemDAO;
+import BO.Item;
+import DB.ItemDB;
 
 @WebServlet(name="ItemServlet", urlPatterns={"/new", "/insert", "/delete", "/edit", "/update", "/list", "/ItemList_Kund"})
 public class ItemServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private ItemDAO itemDAO;
+    private ItemDB itemDAO;
 
     public void init() {
-    	itemDAO = new ItemDAO();
+    	itemDAO = new ItemDB();
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

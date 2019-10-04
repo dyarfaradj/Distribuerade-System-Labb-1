@@ -1,4 +1,4 @@
-package Business;
+package BO;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -11,15 +11,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import DB.LoginDao;
+import DB.LoginDB;
 
 @WebServlet(name = "LoginServlet", urlPatterns = { "/login", "/logout" })
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private LoginDao loginDao;
+	private LoginDB loginDao;
 
 	public void init() {
-		loginDao = new LoginDao();
+		loginDao = new LoginDB();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

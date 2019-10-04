@@ -1,4 +1,4 @@
-package Business;
+package BO;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -11,16 +11,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DB.CategoryDao;
+import DB.CategoryDB;
 
 @WebServlet(name = "CategoryServlet", urlPatterns = { "/showcategories", "/addcategory", "/removecategory",
 		"/editcategory", "/updatecategory" })
 public class CategoryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private CategoryDao categoryDao;
+	private CategoryDB categoryDao;
 
 	public void init() {
-		categoryDao = new CategoryDao();
+		categoryDao = new CategoryDB();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

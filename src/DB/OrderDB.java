@@ -7,9 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import Business.Cart;
+import BO.Cart;
 
-public class OrderDao {
+public class OrderDB {
 
 	public void placeorder(int uid) {
 		Connection connection = null;
@@ -21,7 +21,7 @@ public class OrderDao {
 			connection = DBConnection.getConnection();
 
 			// To get list of all cart
-			CartDao cartDAO = new CartDao();
+			CartDB cartDAO = new CartDB();
 			List<Cart> result = new ArrayList<Cart>();
 			result = cartDAO.selectAllItems(uid);
 

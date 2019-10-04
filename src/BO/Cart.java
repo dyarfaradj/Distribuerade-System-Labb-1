@@ -1,4 +1,4 @@
-package Business;
+package BO;
 
 public class Cart {
 

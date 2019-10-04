@@ -5,10 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import Business.LoginBean;
-import Business.User;
+import BO.LoginBean;
+import BO.User;
 
-public class LoginDao {
+public class LoginDB {
 
 	public User validate(LoginBean loginBean) throws ClassNotFoundException {
 		Connection connection = null;
