@@ -8,6 +8,7 @@
 <body>
 <jsp:include page="navbar.jsp" />
 <jsp:include page="sidebar.jsp" />
+<div class="container">
 <div style="color: white; text-align: center">
     </div>
 <div class="table-title">
@@ -40,5 +41,6 @@
             </c:forEach>        
 </tbody>
 </table>
+</div>
 </body>
 </html>

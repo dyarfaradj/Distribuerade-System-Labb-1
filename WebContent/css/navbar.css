@@ -3,6 +3,10 @@
 .navigation {
 	 height: 70px;
 	 background: #262626;
+	 position: fixed;
+	 width: 100%;
+	 top: 0;
+	 z-index: 2147483647;
 }
  .brand {
   	position: absolute;

@@ -23,14 +23,19 @@ body {
   background: #4CAF50;
   background: url('https://i.imgur.com/Eor57Ae.jpg') no-repeat fixed center center;
   background-size: cover;
+  /* margin: 38px; */
 }
 
 .container {
-  max-width: 400px;
-  width: 100%;
-  margin: 0 auto;
+  max-width: 700px;
+  margin: 75px auto;
   position: relative;
 }
+
+.container-reg {
+  max-width: 400px;
+}
+
 
 #contact input[type="text"],
 #contact input[type="email"],
@@ -237,8 +242,6 @@ div.table-title {
   border-radius:3px;
   border-collapse: collapse;
   height: 320px;
-  margin: auto;
-  max-width: 600px;
   padding:5px;
   width: 100%;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);

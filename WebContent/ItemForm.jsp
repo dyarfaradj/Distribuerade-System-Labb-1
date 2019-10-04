@@ -9,6 +9,7 @@
 <body>
 <jsp:include page="navbar.jsp" />
 <jsp:include page="sidebar.jsp" />
+<div class="container">
 <div style="color: white; text-align: center">
     </div>
     <div align="center">
@@ -75,6 +76,7 @@
             </tbody>
         </table>
         </form>
-    </div>   
+    </div>  
+    </div> 
 </body>
 </html>

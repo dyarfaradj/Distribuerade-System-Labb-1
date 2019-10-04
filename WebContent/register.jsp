@@ -11,6 +11,7 @@
 <jsp:include page="navbar.jsp"/>
 <jsp:include page="sidebar.jsp" />
 <div class="container">  
+<div class="container-reg">
   <form id="contact" action="<%= request.getContextPath() %>/register" method="post">
     <h3>Registration</h3>
     <h4>Fill in the details below to sign up!</h4>
@@ -39,6 +40,7 @@
       <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
     </fieldset>
   </form>
+  </div>
 </div>
 </body>
 </html>
