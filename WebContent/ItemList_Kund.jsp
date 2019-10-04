@@ -12,33 +12,20 @@
 <div class="table-title">
 <h3>List of all items</h3>
 </div>
-<table class="table-fill">
-<thead>
-<tr>
-<th class="text-left">ID</th>
-<th class="text-left">Title</th>
-<th class="text-left">Category</th>
-<th class="text-left">Stock</th>
-<th class="text-left">Price</th>
-<th class="text-left">Actions</th>
-</tr>
-</thead>
-<tbody class="table-hover">
- <c:forEach var="item" items="${listItem1}">
-                <tr>
-                    <td><c:out value="${item.product_id}" /></td>
-                    <td><c:out value="${item.product_name}" /></td>
-                    <td><c:out value="${item.cat_id}" /></td>
-                    <td><c:out value="${item.stock}" /></td>
-                    <td><c:out value="${item.price}" /></td>
-                    <td>
-                    <a class="nostyle" href="./addtocart?product_id=<c:out value='${item.product_id}' />"><button>Add to cart</button></a>
-                       
-                    </td>
-                </tr>
-            </c:forEach>        
-</tbody>
-</table>
+<div id="p-grid">
+<c:forEach var="item" items="${listItem1}">
+            
+      <div class="p-grid">
+	      <div class="p-grid-in">
+	        <img class="p-img" src="https://code-boxx.com/wp-content/uploads/2018/07/5.jpg"/>
+	        <div class="p-name"><c:out value="${item.product_name}" /></div>
+	        <div class="p-price">$<c:out value="${item.price}" /></div>
+	        <div class="p-desc"><c:out value="${item.product_id}" /></div>
+	        <a class="nostyle" href="./addtocart?product_id=<c:out value='${item.product_id}' />"><button>Add to cart</button></a>
+	      </div>
+      </div>
+ </c:forEach>  
+</div>
 </div>
 </body>
 </html>
