@@ -10,49 +10,31 @@
 <jsp:include page="navbar.jsp" />
 <jsp:include page="sidebar.jsp" />
 <div class="container">
-<div style="color: white; text-align: center">
-    </div>
-    <div align="center">
-        <c:if test="${category != null}">
+    <div class="login-block">
+    <h1><c:if test="${category != null}">
+                        Edit Category
+                    </c:if>
+                    <c:if test="${category == null}">
+                        Add New Category
+                    </c:if></h1>
+     <c:if test="${category != null}">
             <form action="updatecategory" method="post">
         </c:if>
         <c:if test="${category == null}">
             <form action="addcategory" method="post">
         </c:if>
-        <table class="table-fill" border="1" cellpadding="5">
-            <caption>
-            <div class="table-title">
-                <h3>
-                    <c:if test="${category != null}">
-                        Edit Item
-                    </c:if>
-                    <c:if test="${category == null}">
-                        Add New Category
-                    </c:if>
-                </h3>
-               </div>
-            </caption>
-            <tbody class="table-hover">
-                <c:if test="${category != null}">
+     
+     <c:if test="${category != null}">
                     <input type="hidden" name="cat_id" value="<c:out value='${category.cat_id}' />" />
-                </c:if>           
-            <tr>
-                <th class="text-left">Name: </th>
-                <td>
-                    <input  type="text" name="cat_name" size="45"
-                            value="<c:out value='${category.cat_name}' />"
-                        />
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" align="center">
-                    <button>Save</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        </form>
-    </div>  
+      </c:if>
+    
+	<label class="testLabel">Name</label>
+	<span class="testSpan"><input  type="text" placeholder="Category name" name="cat_name" size="45" value="<c:out value='${category.cat_name}' />"/></span>
+	
+    <button>Save</button>
+    </form>
+</div> 
+     
     </div> 
 </body>
 </html>
