@@ -11,11 +11,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import DB.CartDB;
 import DB.OrderDB;
 import BO.Billing;
 
 
-@WebServlet(name = "OrderServlet", urlPatterns = { "/placeorder", "/orderlist", "/vieworder" })
+@WebServlet(name = "OrderServlet", urlPatterns = { "/placeorder", "/orderlist", "/vieworder", "/sendorder"})
 public class OrderServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -44,7 +45,7 @@ public class OrderServlet extends HttpServlet {
 				viewOrder(request, response);
 				break;
 			case "/sendorder":
-				placerOrder(request, response);
+				sendOrder(request, response);
 				break;
 			default:
 				break;
@@ -72,13 +73,23 @@ public class OrderServlet extends HttpServlet {
 	}
 	private void viewOrder(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-		int order_id = 22;
+		int order_id = (int) request.getSession().getAttribute("bill_no");;
 
 		List<Billing> viewOrder  = orderDAO.selectOrderByID(order_id);
 		request.setAttribute("viewOrder", viewOrder);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/ViewOrder.jsp");
 		dispatcher.forward(request, response);
 	}
+	
+	private void sendOrder(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+		int bill_no = (int) request.getSession().getAttribute("bill_no");
+		System.out.println("bill_no");
+		orderDAO.packed(bill_no);
+        response.sendRedirect("orderlist");
+		
+	}
+
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

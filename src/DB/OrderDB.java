@@ -171,5 +171,27 @@ public class OrderDB {
 		}
 		return billing;
 	}
+	public boolean packed(int bill_no) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement;
+		boolean rowDeleted = false;
+
+		try {
+			connection = DBConnection.getConnection();
+			preparedStatement = connection.prepareStatement("UPDATE billing SET billing.packed = true WHERE billing.bill_no = ?");
+			preparedStatement.setInt(1, bill_no);
+			rowDeleted = preparedStatement.executeUpdate() > 0;
+		} catch (SQLException e) {
+			DBConnection.printSQLException(e);
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+			}
+		}
+		return rowDeleted;
+	}
 
 }

@@ -12,15 +12,7 @@
 <div style="color: white; text-align: center">
     </div>
 <div class="table-title">
-<h3>Din varukorg!</h3> <a href="./placeorder" style="font: bold 11px Arial;
-  text-decoration: none;
-  background-color: #EEEEEE;
-  color: #333333;
-  padding: 2px 6px 2px 6px;
-  border-top: 1px solid #CCCCCC;
-  border-right: 1px solid #333333;
-  border-bottom: 1px solid #333333;
-  border-left: 1px solid #CCCCCC;">Place order!</a>
+<h3>Din varukorg!</h3> 
 </div>
 <table class="table-fill">
 <thead>
@@ -29,6 +21,7 @@
 <th class="text-left">User ID</th>
 <th class="text-left">Total amount</th>
 <th class="text-left">Shipped</th>
+<th class="text-left">Pack</th>
 </tr>
 </thead>
 <tbody class="table-hover">
@@ -38,10 +31,13 @@
                     <td><c:out value="${order.uid}" /></td>
                     <td><c:out value="${order.total_amt}" /></td>
                     <td><c:out value="${order.packed}" /></td>
+                    <td><a class="nostyle" href="./viewOrder?bill_no=<c:out value='${order.bill_no}' />"><button class="edit-button40">Edit</button></a>
+                    </td>
                 </tr>
             </c:forEach>
 </tbody>
 </table>
+
 </div>
 </body>
 </html>

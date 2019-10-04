@@ -43,6 +43,7 @@
                 </tr>
             </c:forEach>
 </tbody>
+<a class="nostyle" href="./sendorder?bill_no=<c:out value='${order.bill_no}' />"><button>Send</button></a>
 </table>
 </div>
 </body>
