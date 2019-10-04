@@ -32,6 +32,32 @@ body {
   position: relative;
 }
 
+.container900 {
+  max-width: 900px;
+  margin: 75px auto;
+  position: relative;
+}
+
+a.nostyle:link {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: auto;
+}
+
+a.nostyle:visited {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: auto;
+}
+
+.edit-button{
+	width: 30%;
+}
+
+.edit-button40{
+	width: 40%;
+}
+
 .container-reg {
   max-width: 400px;
 }

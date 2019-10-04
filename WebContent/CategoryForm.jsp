@@ -26,7 +26,7 @@
      
      <c:if test="${category != null}">
                     <input type="hidden" name="cat_id" value="<c:out value='${category.cat_id}' />" />
-      </c:if>
+       </c:if>
     
 	<label class="testLabel">Name</label>
 	<span class="testSpan"><input  type="text" placeholder="Category name" name="cat_name" size="45" value="<c:out value='${category.cat_name}' />"/></span>

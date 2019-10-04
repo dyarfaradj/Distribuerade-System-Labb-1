@@ -8,9 +8,7 @@
 <body>
 <jsp:include page="navbar.jsp" />
 <jsp:include page="sidebar.jsp" />
-<div class="container">
-<div style="color: white; text-align: center">
-    </div>
+<div class="container900">
 <div class="table-title">
 <h3>List of all items</h3>
 </div>
@@ -34,9 +32,9 @@
                     <td><c:out value="${item.stock}" /></td>
                     <td><c:out value="${item.price}" /></td>
                     <td>
-                        <a href="./edit?product_id=<c:out value='${item.product_id}' />">Edit</a>
+                   		<a class="nostyle" href="./edit?product_id=<c:out value='${item.product_id}' />"><button class="edit-button40">Edit</button></a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="./delete?product_id=<c:out value='${item.product_id}' />">Delete</a>                     
+                        <a class="nostyle" href="./delete?product_id=<c:out value='${item.product_id}' />"><button class="edit-button40">Delete</button></a>                   
                     </td>
                 </tr>
             </c:forEach>

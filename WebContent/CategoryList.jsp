@@ -28,9 +28,9 @@
                     <td><c:out value="${category.cat_id}" /></td>
                     <td><c:out value="${category.cat_name}" /></td>
                     <td>
-                        <a href="./editcategory?cat_id=<c:out value='${category.cat_id}' />">Edit</a>
+                        <a class="nostyle" href="./editcategory?cat_id=<c:out value='${category.cat_id}' />"><button class="edit-button">Edit</button></a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="./removecategory?cat_id=<c:out value='${category.cat_id}' />">Delete</a>                        
+                        <a class="nostyle" href="./removecategory?cat_id=<c:out value='${category.cat_id}' />"><button class="edit-button">Delete</button></a>                     
                     </td>
                 </tr>
             </c:forEach>

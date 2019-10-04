@@ -9,8 +9,6 @@
 <jsp:include page="navbar.jsp" />
 <jsp:include page="sidebar.jsp" />
 <div class="container">
-<div style="color: white; text-align: center">
-    </div>
 <div class="table-title">
 <h3>List of all items</h3>
 </div>
@@ -34,7 +32,7 @@
                     <td><c:out value="${item.stock}" /></td>
                     <td><c:out value="${item.price}" /></td>
                     <td>
-                        <a href="./addtocart?product_id=<c:out value='${item.product_id}' />">Add to cart</a>
+                    <a class="nostyle" href="./addtocart?product_id=<c:out value='${item.product_id}' />"><button>Add to cart</button></a>
                        
                     </td>
                 </tr>
