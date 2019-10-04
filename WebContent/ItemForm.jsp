@@ -40,7 +40,7 @@
 	<label class="testLabel">Price</label>
 	<span class="testSpan"><input type="text" placeholder="Price" name="price" size="5" value="<c:out value='${item.price}' />"/></span>
 	
-    <button>Save</button>
+    <button>Add</button>
     </form>
 </div> 
     </div> 

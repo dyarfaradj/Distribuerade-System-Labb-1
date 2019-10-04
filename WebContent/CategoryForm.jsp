@@ -31,7 +31,7 @@
 	<label class="testLabel">Name</label>
 	<span class="testSpan"><input  type="text" placeholder="Category name" name="cat_name" size="45" value="<c:out value='${category.cat_name}' />"/></span>
 	
-    <button>Save</button>
+    <button>Add</button>
     </form>
 </div> 
      
