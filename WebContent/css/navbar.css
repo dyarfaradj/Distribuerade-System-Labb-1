@@ -5,7 +5,9 @@
 	 background: #262626;
 }
  .brand {
-	 position: absolute;
+  	position: absolute;
+    left: 0px;
+    margin-left: 150px;
 	 float: left;
 	 line-height: 70px;
 	 text-transform: uppercase;
@@ -17,10 +19,11 @@
 }
  .nav-container {
 	 max-width: 1000px;
-	 margin: 0 auto;
+	 margin: auto;
 }
  nav {
 	 float: right;
+	 /* margin: 0 auto; */
 }
  nav ul {
 	 list-style: none;

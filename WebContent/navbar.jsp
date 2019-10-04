@@ -14,12 +14,18 @@
 <body>
 <% 	HttpSession sess=request.getSession(true);
 	String username=(String)sess.getAttribute("username");
+	String role=(String)sess.getAttribute("role");
 	Integer user_id=(Integer )sess.getAttribute("user_id"); %>
 
 <section class="navigation">
   <div class="nav-container">
     <div class="brand">
-      <a href="./">DYKA ONLINE SHOPPING!<%out.println(" VÄLKOMMEN "+username + " ID: " + user_id); %></a>
+      <a href="./">DYKA ONLINE SHOPPING!</a>
+       <c:choose>
+		    <c:when test="${username != null}">
+		   		<%out.println("VÄLKOMMEN "+username); %>
+		    </c:when>    
+		</c:choose>
     </div>
     <nav>
       <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
@@ -27,17 +33,56 @@
         <li>
           <a href="./">Home</a>
         </li>
-        <li>
-          <a href="#!">ADMIN</a>
-          <ul class="nav-dropdown">
-            <li>
-              <a href="./list">Product Management</a>
-            </li>
-            <li>
-              <a href="./new">Add new product</a>
-            </li>
-          </ul>
-        </li>
+        <c:choose>
+		    <c:when test="${role  == 'admin'}">
+			    <li>
+		          <a href="#!">ADMIN</a>
+		          <ul class="nav-dropdown">
+		            <li>
+		              <a href="./list">Product Management</a>
+		            </li>
+		            <li>
+		              <a href="./new">Add new product</a>
+		            </li>
+		          </ul>
+		        </li>
+		    </c:when>   
+		    <c:when test="${role == 'customer'}">
+		   		<li>
+		          <a href="#!">KUND</a>
+		          <ul class="nav-dropdown">
+		            <li>
+		              <a href="showcart">Shopping Cart</a>
+		            </li>
+		            <li>
+		              <a href="#!">Web Development</a>
+		            </li>
+		            <li>
+		              <a href="#!">Graphic Design</a>
+		            </li>
+		          </ul>
+		        </li>
+		    </c:when>
+		  </c:choose>
+		  <c:choose>
+		    <c:when test="${role == 'manager' || role  == 'admin'}">
+		   		<li>
+		          <a href="#!">MANAGER</a>
+		          <ul class="nav-dropdown">
+		            <li>
+		              <a href="showcart">Shopping Cart</a>
+		            </li>
+		            <li>
+		              <a href="#!">Web Development</a>
+		            </li>
+		            <li>
+		              <a href="#!">Graphic Design</a>
+		            </li>
+		          </ul>
+		        </li>
+		    </c:when>  
+		</c:choose>
+		
 		 <c:choose>
 		    <c:when test="${username != null}">
 		    <li>
@@ -53,20 +98,6 @@
 		    </li>
 		    </c:otherwise>
 		</c:choose>
-        <li>
-          <a href="#!">KUND</a>
-          <ul class="nav-dropdown">
-            <li>
-              <a href="showcart">Shopping Cart</a>
-            </li>
-            <li>
-              <a href="#!">Web Development</a>
-            </li>
-            <li>
-              <a href="#!">Graphic Design</a>
-            </li>
-          </ul>
-        </li>
       </ul>
     </nav>
   </div>

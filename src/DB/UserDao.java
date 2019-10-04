@@ -19,7 +19,7 @@ public class UserDao {
 		try {
 			connection = DBConnection.getConnection();
 			preparedStatement = connection.prepareStatement(INSERT_USERS_SQL);
-			preparedStatement.setString(1, user.getFirstName());
+			preparedStatement.setString(1, user.getName());
 			preparedStatement.setString(2, user.getUsername());
 			preparedStatement.setString(3, user.getPassword());
 			preparedStatement.setString(4, user.getAddress());
