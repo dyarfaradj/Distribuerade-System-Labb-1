@@ -71,7 +71,7 @@
 		          <a href="#!">MANAGER</a>
 		          <ul class="nav-dropdown">
 		            <li>
-		              <a href="showcart">Order Management</a>
+		              <a href="orderlist">Order Management</a>
 		            </li>
 		          </ul>
 		        </li>
