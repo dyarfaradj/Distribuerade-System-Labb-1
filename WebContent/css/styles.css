@@ -35,7 +35,16 @@ body {
 .container-reg {
   max-width: 400px;
 }
-
+.testSpan{
+	display: block;
+    overflow: hidden;
+    padding: 0 4px 0 6px
+}
+.testLabel{
+	float: left;
+	margin-top: 5px;
+	width: 20%;
+}
 
 #contact input[type="text"],
 #contact input[type="email"],

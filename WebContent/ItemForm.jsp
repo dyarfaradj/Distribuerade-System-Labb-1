@@ -10,73 +10,39 @@
 <jsp:include page="navbar.jsp" />
 <jsp:include page="sidebar.jsp" />
 <div class="container">
-<div style="color: white; text-align: center">
-    </div>
-    <div align="center">
-        <c:if test="${item != null}">
-            <form action="update" method="post">
-        </c:if>
-        <c:if test="${item == null}">
-            <form action="insert" method="post">
-        </c:if>
-        <table class="table-fill" border="1" cellpadding="5">
-            <caption>
-            <div class="table-title">
-                <h3>
-                    <c:if test="${item != null}">
+<div class="login-block">
+    <h1><c:if test="${item != null}">
                         Edit Item
                     </c:if>
                     <c:if test="${item == null}">
                         Add New Item
-                    </c:if>
-                </h3>
-               </div>
-            </caption>
-            <tbody class="table-hover">
-                <c:if test="${item != null}">
-                    <input type="hidden" name="product_id" value="<c:out value='${item.product_id}' />" />
-                </c:if>           
-            <tr>
-                <th class="text-left">Title: </th>
-                <td>
-                    <input  type="text" name="product_name" size="45"
-                            value="<c:out value='${item.product_name}' />"
-                        />
-                </td>
-            </tr>
-            <tr>
-                <th class="text-left">Category: </th>
-                <td>
-                    <input type="text" name="cat_id" size="45"
-                            value="<c:out value='${item.cat_id}' />"
-                    />
-                </td>
-            </tr>
-            <tr>
-                <th class="text-left">Quantity: </th>
-                <td>
-                    <input type="text" name="stock" size="5"
-                            value="<c:out value='${item.stock}' />"
-                    />
-                </td>
-            </tr>
-            <tr>
-                <th class="text-left">Price: </th>
-                <td>
-                    <input type="text" name="price" size="5"
-                            value="<c:out value='${item.price}' />"
-                    />
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" align="center">
-                    <button>Save</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        </form>
-    </div>  
+                    </c:if></h1>
+     <c:if test="${item != null}">
+            <form action="update" method="post">
+        </c:if>
+        <c:if test="${item == null}">
+            <form action="insert" method="post">
+     </c:if>
+     
+     <c:if test="${item != null}">
+           <input type="hidden" name="product_id" value="<c:out value='${item.product_id}' />" />
+    </c:if> 
+    
+    <label class="testLabel">Title</label>
+	<span class="testSpan"><input  type="text" placeholder="Product name" name="product_name" size="45" value="<c:out value='${item.product_name}' />"/></span>
+	
+	<label class="testLabel">Category</label>
+	<span class="testSpan"><input type="text" placeholder="Category" name="cat_id" size="45" value="<c:out value='${item.cat_id}' />"/></span>
+	
+	<label class="testLabel">Stock</label>
+	<span class="testSpan"><input type="text" placeholder="Stock" name="stock" size="5" value="<c:out value='${item.stock}' />"/></span>
+	
+	<label class="testLabel">Price</label>
+	<span class="testSpan"><input type="text" placeholder="Price" name="price" size="5" value="<c:out value='${item.price}' />"/></span>
+	
+    <button>Save</button>
+    </form>
+</div> 
     </div> 
 </body>
 </html>

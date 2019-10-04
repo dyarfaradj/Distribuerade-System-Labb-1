@@ -60,12 +60,6 @@
 		            <li>
 		              <a href="showcart">Shopping Cart</a>
 		            </li>
-		            <li>
-		              <a href="#!">Web Development</a>
-		            </li>
-		            <li>
-		              <a href="#!">Graphic Design</a>
-		            </li>
 		          </ul>
 		        </li>
 		    </c:when>
@@ -76,13 +70,7 @@
 		          <a href="#!">MANAGER</a>
 		          <ul class="nav-dropdown">
 		            <li>
-		              <a href="showcart">Shopping Cart</a>
-		            </li>
-		            <li>
-		              <a href="#!">Web Development</a>
-		            </li>
-		            <li>
-		              <a href="#!">Graphic Design</a>
+		              <a href="showcart">Order Management</a>
 		            </li>
 		          </ul>
 		        </li>
