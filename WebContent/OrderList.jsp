@@ -31,7 +31,7 @@
                     <td><c:out value="${order.uid}" /></td>
                     <td><c:out value="${order.total_amt}" /></td>
                     <td><c:out value="${order.packed}" /></td>
-                    <td><a class="nostyle" href="./vieworder?bill_no=<c:out value='${order.bill_no}' />"><button>Send</button></a>
+                    <td><a class="nostyle" href="./vieworder?bill_no=<c:out value='${order.bill_no}' />"><button>Pack</button></a>
                     </td>
                 </tr>
             </c:forEach>
