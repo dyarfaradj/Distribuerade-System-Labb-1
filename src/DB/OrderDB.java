@@ -105,7 +105,7 @@ public class OrderDB {
 
 		try {
 			connection = DBConnection.getConnection();
-			preparedStatement = connection.prepareStatement("select * from billing");
+			preparedStatement = connection.prepareStatement("SELECT * FROM billing WHERE billing.packed = false");
 
 			System.out.println(preparedStatement);
 			// Step 3: Execute the query or update query
