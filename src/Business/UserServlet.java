@@ -27,15 +27,17 @@ public class UserServlet extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String address = request.getParameter("address");
-		String contact = request.getParameter("contact");
+		String phone = request.getParameter("phone");
+		String email = request.getParameter("email");
 
 		User user = new User();
-		user.setFirstName(firstName);
-		user.setLastName(lastName);
+		user.setName(firstName + " " + lastName);
 		user.setUsername(username);
 		user.setPassword(password);
-		user.setContact(contact);
+		user.setEmail(email);
+		user.setPhone(phone);
 		user.setAddress(address);
+		user.setRole("customer");
 
 		try {
 			userDao.registerEmployee(user);

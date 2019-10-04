@@ -6,13 +6,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import Business.LoginBean;
+import Business.User;
 
 public class LoginDao {
 
-	public boolean validate(LoginBean loginBean) throws ClassNotFoundException {
+	public User validate(LoginBean loginBean) throws ClassNotFoundException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		boolean status = false;
+		User user = new User();
 
 		try {
 			connection = DBConnection.getConnection();
@@ -23,12 +24,15 @@ public class LoginDao {
 
 			System.out.println(preparedStatement);
 			ResultSet rs = preparedStatement.executeQuery();
-			status = rs.next();
+			rs.next();
+			user.setName(rs.getString("name"));
+			user.setUid(rs.getInt("uid"));
+			user.setRole(rs.getString("role"));
 
 		} catch (SQLException e) {
 			DBConnection.printSQLException(e);
 		}
-		return status;
+		return user;
 	}
 
 	public int getUserID(LoginBean loginBean) throws ClassNotFoundException {
