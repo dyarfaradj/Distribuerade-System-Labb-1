@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.3" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="DB.LoginDB" project="Disitribuerade System - Labb 1" 
+    file="/Disitribuerade System - Labb 1/src/DB/LoginDB.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="148" x="87" y="90"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="DB.CartDB" project="Disitribuerade System - Labb 1" 
+    file="/Disitribuerade System - Labb 1/src/DB/CartDB.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="199" x="275" y="90"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="DB.CategoryDB" project="Disitribuerade System - Labb 1" 
+    file="/Disitribuerade System - Labb 1/src/DB/CategoryDB.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="261" width="203" x="514" y="90"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="DB.DBConnection" project="Disitribuerade System - Labb 1" 
+    file="/Disitribuerade System - Labb 1/src/DB/DBConnection.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="214" x="757" y="90"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="DB.UserDB" project="Disitribuerade System - Labb 1" 
+    file="/Disitribuerade System - Labb 1/src/DB/UserDB.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="162" x="1011" y="90"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="DB.OrderDB" project="Disitribuerade System - Labb 1" 
+    file="/Disitribuerade System - Labb 1/src/DB/OrderDB.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="183" x="1213" y="90"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="DB.ItemDB" project="Disitribuerade System - Labb 1" 
+    file="/Disitribuerade System - Labb 1/src/DB/ItemDB.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="297" width="205" x="1436" y="90"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="BO.Category" project="Disitribuerade System - Labb 1" 
+    file="/Disitribuerade System - Labb 1/src/BO/Category.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="148" x="278" y="263"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="BO.LoginBean" project="Disitribuerade System - Labb 1" 
+    file="/Disitribuerade System - Labb 1/src/BO/LoginBean.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="150" x="466" y="263"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="BO.Billing" project="Disitribuerade System - Labb 1" 
+    file="/Disitribuerade System - Labb 1/src/BO/Billing.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="549" width="169" x="656" y="263"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="BO.User" project="Disitribuerade System - Labb 1" 
+    file="/Disitribuerade System - Labb 1/src/BO/User.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="531" width="150" x="865" y="263"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="BO.CartServlet" project="Disitribuerade System - Labb 1" 
+    file="/Disitribuerade System - Labb 1/src/BO/CartServlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="304" x="1055" y="263"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="BO.ItemServlet" project="Disitribuerade System - Labb 1" 
+    file="/Disitribuerade System - Labb 1/src/BO/ItemServlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="279" width="330" x="1399" y="263"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="BO.OrderServlet" project="Disitribuerade System - Labb 1" 
+    file="/Disitribuerade System - Labb 1/src/BO/OrderServlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="313" x="1769" y="263"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="BO.Item" project="Disitribuerade System - Labb 1" 
+    file="/Disitribuerade System - Labb 1/src/BO/Item.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="387" width="169" x="2122" y="263"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="BO.LoginServlet" project="Disitribuerade System - Labb 1" 
+    file="/Disitribuerade System - Labb 1/src/BO/LoginServlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="288" x="2331" y="263"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="BO.Cart" project="Disitribuerade System - Labb 1" 
+    file="/Disitribuerade System - Labb 1/src/BO/Cart.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="531" width="169" x="2659" y="263"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="BO.UserServlet" project="Disitribuerade System - Labb 1" 
+    file="/Disitribuerade System - Labb 1/src/BO/UserServlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="288" x="2868" y="263"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="BO.CategoryServlet" project="Disitribuerade System - Labb 1" 
+    file="/Disitribuerade System - Labb 1/src/BO/CategoryServlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="335" x="3196" y="263"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="20">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="21" name="orderDAO"/>      
+      <multiplicity id="22" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="23">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="24" name="userDao"/>      
+      <multiplicity id="25" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="26">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="27" name="categoryDao"/>      
+      <multiplicity id="28" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="29">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="30" name="itemDAO"/>      
+      <multiplicity id="31" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="32">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="33" name="categoryDao"/>      
+      <multiplicity id="34" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="35">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="36" name="loginDao"/>      
+      <multiplicity id="37" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="38">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="39" name="cartDAO"/>      
+      <multiplicity id="40" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
