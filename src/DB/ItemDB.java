@@ -13,6 +13,7 @@ public class ItemDB {
 	private static final String INSERT_ITEM_SQL = "INSERT INTO product (cat_id, product_name, price, stock) VALUES (?, ?, ?, ?)";
 	private static final String SELECT_ITEM_BY_ID = "select product_id,product_name,cat_id,stock,price from product where product_id =?";
 	private static final String SELECT_ALL_ITEMS = "select * from product";
+	private static final String SELECT_ALL_ITEMS_BY_CAT = "select * from product where cat_id = ?";
 	private static final String DELETE_ITEMS_SQL = "DELETE FROM product where product_id = ?";
 	private static final String UPDATE_ITEM_SQL = "UPDATE product SET product_name = ?, cat_id = ?, stock = ?, price = ? WHERE product_id = ?";
 
@@ -100,6 +101,41 @@ public class ItemDB {
 				int stock = rs.getInt("stock");
 				int price = rs.getInt("price");
 				items.add(new Item(product_id, product_name, cat_id, stock, price));
+			}
+		} catch (SQLException e) {
+			DBConnection.printSQLException(e);
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+			}
+		}
+		return items;
+	}
+
+	public List<Item> selectAllItemsByCat(int cat_id) {
+		Connection connection = null;
+		PreparedStatement preparedStatement;
+		List<Item> items = new ArrayList<>();
+
+		try {
+			connection = DBConnection.getConnection();
+			preparedStatement = connection.prepareStatement(SELECT_ALL_ITEMS_BY_CAT);
+			preparedStatement.setInt(1, cat_id);
+			System.out.println(preparedStatement);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			// Step 4: Process the ResultSet object.
+			while (rs.next()) {
+				int product_id = rs.getInt("product_id");
+				String product_name = rs.getString("product_name");
+				int cat_id2 = rs.getInt("cat_id");
+				int stock = rs.getInt("stock");
+				int price = rs.getInt("price");
+				items.add(new Item(product_id, product_name, cat_id2, stock, price));
 			}
 		} catch (SQLException e) {
 			DBConnection.printSQLException(e);

@@ -253,10 +253,10 @@ button:hover {
 
 div.table-title {
    display: block;
-  margin: auto;
-  max-width: 600px;
-  padding:5px;
-  width: 100%;
+   margin: auto;
+   max-width: 600px;
+   padding:5px;
+   width: 100%;
 }
 
 .table-title h3 {

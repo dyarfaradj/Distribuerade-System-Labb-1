@@ -13,9 +13,16 @@
 <div class="table-title">
 <h3>List of all items</h3>
 </div>
+
+<div style="display: flex;"> 
+<div>
+<c:forEach var="category" items="${listCategories}">
+ <a class="nostyle" href="./ItemList_Kund?cat_id=<c:out value='${category.cat_id}' />"><button><c:out value="${category.cat_name}"/></button></a>
+ </c:forEach> 
+</div>
+
 <div id="p-grid">
 <c:forEach var="item" items="${listItem1}">
-            
       <div class="p-grid">
 	      <div class="p-grid-in">
 	        <img class="p-img" src="https://code-boxx.com/wp-content/uploads/2018/07/5.jpg"/>
@@ -26,6 +33,7 @@
 	      </div>
       </div>
  </c:forEach>  
+</div>
 </div>
 </div>
 </body>
