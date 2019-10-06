@@ -1,4 +1,9 @@
 package BO;
+/**
+ * Representation of a category.
+ * 
+ * @author Kamal and Dyar
+ */
 
 import java.io.Serializable;
 

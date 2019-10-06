@@ -1,5 +1,9 @@
 package BO;
-
+/**
+ * Representation of a cart.
+ * 
+ * @author Kamal and Dyar
+ */
 public class Cart {
 
 	private int cart_id;

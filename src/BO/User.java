@@ -1,5 +1,9 @@
 package BO;
-
+/**
+ * Representation of a user.
+ * 
+ * @author Kamal and Dyar
+ */
 import java.io.Serializable;
 
 public class User implements Serializable {

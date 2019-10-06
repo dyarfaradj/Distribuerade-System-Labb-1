@@ -1,5 +1,9 @@
 package BO;
-
+/**
+ * Representation of a bill.
+ * 
+ * @author Kamal and Dyar
+ */
 public class Billing {
 
 	private int bill_no;
